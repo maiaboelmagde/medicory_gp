@@ -10,34 +10,31 @@ class LoginUpperPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             FadeInUp(
-                duration: Duration(milliseconds: 1000),
-                child: Text(
-                  "Medicory",
-                  style: TextStyle(color: Colors.white, fontSize: 40),
+                duration: const Duration(milliseconds: 1000),
+                child: Center(
+                  child: const Text(
+                    "Medicory",
+                    style: TextStyle(color: Colors.white, fontSize: 40),
+                  ),
                 )),
-            SizedBox(
-              height: 10,
+            const SizedBox(
+              height: 70,
             ),
             FadeInUp(
-                duration: Duration(milliseconds: 1300),
-                child: Row(
+                duration: const Duration(milliseconds: 1300),
+                child: const Row(
                   children: [
                     Text(
-                      "login as ",
+                      "login as :",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    Spacer(
-                      flex: 1,
-                    ),
+                    Spacer(),
                     LogasDropDownButton(),
-                    Spacer(
-                      flex: 2,
-                    ),
                   ],
                 )),
           ],

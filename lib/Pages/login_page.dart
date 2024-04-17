@@ -18,25 +18,25 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              height: 50,
+              height: 70,
             ),
             LoginUpperPart(),
-            SizedBox(height: 10),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(60),
-                        topRight: Radius.circular(60))),
-                child: Padding(
-                  padding: EdgeInsets.all(30),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 60,
-                      ),
-                      FadeInUp(
+              child: SingleChildScrollView(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(60),
+                      )),
+                  child: Padding(
+                    padding: EdgeInsets.all(30),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 60,
+                        ),
+                        FadeInUp(
                           duration: Duration(milliseconds: 1400),
                           child: Container(
                             decoration: BoxDecoration(
@@ -81,100 +81,102 @@ class HomePage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          )),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      FadeInUp(
-                          duration: Duration(milliseconds: 1500),
-                          child: Text(
-                            "Forgot Password?",
-                            style: TextStyle(color: Colors.grey),
-                          )),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      FadeInUp(
-                          duration: Duration(milliseconds: 1600),
-                          child: MaterialButton(
-                            onPressed: () {},
-                            height: 50,
-                            // margin: EdgeInsets.symmetric(horizontal: 50),
-                            color: Colors.orange[900],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            // decoration: BoxDecoration(
-                            // ),
-                            child: Center(
-                              child: Text(
-                                "Login",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        FadeInUp(
+                            duration: Duration(milliseconds: 1500),
+                            child: Text(
+                              "Forgot Password?",
+                              style: TextStyle(color: Colors.grey),
+                            )),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        FadeInUp(
+                            duration: Duration(milliseconds: 1600),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              height: 50,
+                              // margin: EdgeInsets.symmetric(horizontal: 50),
+                              color: Colors.orange[900],
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
                               ),
-                            ),
-                          )),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      // FadeInUp(
-                      //     duration: Duration(milliseconds: 1700),
-                      //     child: Text(
-                      //       "Continue with social media",
-                      //       style: TextStyle(color: Colors.grey),
-                      //     )),
-                      // SizedBox(
-                      //   height: 30,
-                      // ),
-                      // Row(
-                      //   children: <Widget>[
-                      //     Expanded(
-                      //       child: FadeInUp(
-                      //           duration: Duration(milliseconds: 1800),
-                      //           child: MaterialButton(
-                      //             onPressed: () {},
-                      //             height: 50,
-                      //             color: Colors.blue,
-                      //             shape: RoundedRectangleBorder(
-                      //               borderRadius: BorderRadius.circular(50),
-                      //             ),
-                      //             child: Center(
-                      //               child: Text(
-                      //                 "Facebook",
-                      //                 style: TextStyle(
-                      //                     color: Colors.white,
-                      //                     fontWeight: FontWeight.bold),
-                      //               ),
-                      //             ),
-                      //           )),
-                      //     ),
-                      //     SizedBox(
-                      //       width: 30,
-                      //     ),
-                      //     Expanded(
-                      //       child: FadeInUp(
-                      //           duration: Duration(milliseconds: 1900),
-                      //           child: MaterialButton(
-                      //             onPressed: () {},
-                      //             height: 50,
-                      //             shape: RoundedRectangleBorder(
-                      //               borderRadius: BorderRadius.circular(50),
-                      //             ),
-                      //             color: Colors.black,
-                      //             child: Center(
-                      //               child: Text(
-                      //                 "Github",
-                      //                 style: TextStyle(
-                      //                     color: Colors.white,
-                      //                     fontWeight: FontWeight.bold),
-                      //               ),
-                      //             ),
-                      //           )),
-                      //     )
-                      //   ],
-                      // )
-                    ],
+                              // decoration: BoxDecoration(
+                              // ),
+                              child: Center(
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            )),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        // FadeInUp(
+                        //     duration: Duration(milliseconds: 1700),
+                        //     child: Text(
+                        //       "Continue with social media",
+                        //       style: TextStyle(color: Colors.grey),
+                        //     )),
+                        // SizedBox(
+                        //   height: 30,
+                        // ),
+                        // Row(
+                        //   children: <Widget>[
+                        //     Expanded(
+                        //       child: FadeInUp(
+                        //           duration: Duration(milliseconds: 1800),
+                        //           child: MaterialButton(
+                        //             onPressed: () {},
+                        //             height: 50,
+                        //             color: Colors.blue,
+                        //             shape: RoundedRectangleBorder(
+                        //               borderRadius: BorderRadius.circular(50),
+                        //             ),
+                        //             child: Center(
+                        //               child: Text(
+                        //                 "Facebook",
+                        //                 style: TextStyle(
+                        //                     color: Colors.white,
+                        //                     fontWeight: FontWeight.bold),
+                        //               ),
+                        //             ),
+                        //           )),
+                        //     ),
+                        //     SizedBox(
+                        //       width: 30,
+                        //     ),
+                        //     Expanded(
+                        //       child: FadeInUp(
+                        //           duration: Duration(milliseconds: 1900),
+                        //           child: MaterialButton(
+                        //             onPressed: () {},
+                        //             height: 50,
+                        //             shape: RoundedRectangleBorder(
+                        //               borderRadius: BorderRadius.circular(50),
+                        //             ),
+                        //             color: Colors.black,
+                        //             child: Center(
+                        //               child: Text(
+                        //                 "Github",
+                        //                 style: TextStyle(
+                        //                     color: Colors.white,
+                        //                     fontWeight: FontWeight.bold),
+                        //               ),
+                        //             ),
+                        //           )),
+                        //     )
+                        //   ],
+                        // )
+                      ],
+                    ),
                   ),
                 ),
               ),
