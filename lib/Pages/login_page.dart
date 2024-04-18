@@ -1,8 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/Pages/doctor_pages/doc_home_page.dart';
+import 'package:medicory_gp/widgets/custom_button.dart';
 import 'package:medicory_gp/widgets/login_upper_part.dart';
 
-class HomePage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
+  final String id = 'loginPage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,27 +98,13 @@ class HomePage extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        FadeInUp(
-                            duration: Duration(milliseconds: 1600),
-                            child: MaterialButton(
-                              onPressed: () {},
-                              height: 50,
-                              // margin: EdgeInsets.symmetric(horizontal: 50),
-                              color: Colors.orange[900],
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              // decoration: BoxDecoration(
-                              // ),
-                              child: Center(
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            )),
+                        CustomButton(
+                          title: 'Log In',
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, DocHomePage().id);
+                          },
+                        ),
                         SizedBox(
                           height: 50,
                         ),
