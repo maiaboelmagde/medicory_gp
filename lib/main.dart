@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/allergies_history_page.dart';
-import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/diseases_history.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_pages_hierarchy/disease_details_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_pages_hierarchy/diseases_history.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/immunization_history_page.dart';
-import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medicines_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/taken_medicines_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/surgical_history_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/doc_home_page.dart';
-import 'package:medicory_gp/Pages/doctor_pages/doc_labtests_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/Pages/login_page.dart';
 
@@ -28,10 +30,12 @@ class MyApp extends StatelessWidget {
         DocLabtestsPage.id: (context) => const DocLabtestsPage(),
         AddPrescriptionPage.id: (context) => const AddPrescriptionPage(),
         DiseaseHistoryPage.id: (context) => const DiseaseHistoryPage(),
-        MedicinesHistoryPage.id: (context) => const MedicinesHistoryPage(),
+        TakenMedicinesPage.id: (context) => const TakenMedicinesPage(),
         AllergiesHistoryPage.id: (context) => const AllergiesHistoryPage(),
-        SurgicalHistoryPage.id: (context) => SurgicalHistoryPage(),
-        ImmunizationHistoryPage.id: (context) => ImmunizationHistoryPage(),
+        SurgicalHistoryPage.id: (context) => const SurgicalHistoryPage(),
+        ImmunizationHistoryPage.id: (context) =>
+            const ImmunizationHistoryPage(),
+        TestsResultsPage.id: (context) => const TestsResultsPage(),
       },
       initialRoute: LoginPage.id,
     );

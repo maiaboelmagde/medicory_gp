@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
+import 'package:medicory_gp/widgets/search_textfield.dart';
 
 class AddPrescriptionPage extends StatelessWidget {
   static const String id = "AddPrescriptionPage";
@@ -17,12 +18,8 @@ class AddPrescriptionPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            TextField(
-              decoration: InputDecoration(
-                  hintText: 'Search by name',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  suffixIcon: Icon(Icons.search)),
+            SearchTextField(
+              onchange: (data) {},
             ),
             SizedBox(
               height: 20,

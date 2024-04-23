@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/allergies_history_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/diseases_history.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/immunization_history_page.dart';
-import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medicines_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/taken_medicines_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/surgical_history_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class MedicalHistoryPage extends StatelessWidget {
-  static final String id = 'medicalHistoryPage';
+  static const String id = 'medicalHistoryPage';
   const MedicalHistoryPage({super.key});
 
   @override
@@ -31,7 +31,7 @@ class MedicalHistoryPage extends StatelessWidget {
             CustomButton(
                 title: 'Medicines',
                 onPressed: () {
-                  Navigator.pushNamed(context, MedicinesHistoryPage.id);
+                  Navigator.pushNamed(context, TakenMedicinesPage.id);
                 }),
             Spacer(flex: 1),
             CustomButton(

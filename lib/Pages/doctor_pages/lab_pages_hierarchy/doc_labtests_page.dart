@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class DocLabtestsPage extends StatelessWidget {
-  static final String id = 'doc_Lab_Tests';
+  static const String id = 'doc_Lab_Tests';
   const DocLabtestsPage({super.key});
 
   @override
