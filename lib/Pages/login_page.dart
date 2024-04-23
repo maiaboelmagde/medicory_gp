@@ -5,7 +5,7 @@ import 'package:medicory_gp/widgets/custom_button.dart';
 import 'package:medicory_gp/widgets/login_upper_part.dart';
 
 class LoginPage extends StatelessWidget {
-  static final String id = 'loginPage';
+  static const String id = 'loginPage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

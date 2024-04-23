@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_details_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class DiseaseHistoryPage extends StatelessWidget {
@@ -34,7 +35,14 @@ class DiseaseHistoryPage extends StatelessWidget {
             child: ListView.builder(
                 itemCount: diseases.length,
                 itemBuilder: (context, idx) {
-                  return CustomButton(title: diseases[idx], onPressed: () {});
+                  return CustomButton(
+                      title: diseases[idx],
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DiseaseDetailsPage(title: diseases[idx]);
+                        }));
+                      });
                 }),
           ),
           Align(
