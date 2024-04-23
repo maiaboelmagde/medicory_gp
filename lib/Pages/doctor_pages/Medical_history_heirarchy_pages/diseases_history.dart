@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/add_disease_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_details_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class DiseaseHistoryPage extends StatelessWidget {
-  static final String id = "DiseaseHistoryPage";
+  static const String id = "DiseaseHistoryPage";
   const DiseaseHistoryPage({super.key});
 
   @override
@@ -50,7 +51,14 @@ class DiseaseHistoryPage extends StatelessWidget {
             child: SizedBox(
                 height: 80,
                 width: 160,
-                child: CustomButton(title: 'ADD', onPressed: () {})),
+                child: CustomButton(
+                    title: 'ADD',
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return AddDiseasePage();
+                      }));
+                    })),
           )
         ],
       ),

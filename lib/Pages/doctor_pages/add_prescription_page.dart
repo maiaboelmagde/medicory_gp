@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:medicory_gp/widgets/custom_button.dart';
 
 class AddPrescriptionPage extends StatelessWidget {
-  static final String id = "AddPrescriptionPage";
+  static const String id = "AddPrescriptionPage";
   const AddPrescriptionPage({super.key});
 
   @override
@@ -27,22 +27,13 @@ class AddPrescriptionPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            GestureDetector(
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(16)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'ADD',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
+            SizedBox(
+              width: 100,
+              child: CustomButton(
+                title: 'ADD',
+                onPressed: () {},
               ),
-              onTap: () {},
-            )
+            ),
           ],
         ),
       ),
