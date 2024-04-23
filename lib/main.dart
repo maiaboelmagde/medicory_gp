@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/allergies_history_page.dart';
-import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_pages_hierarchy/disease_details_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_pages_hierarchy/diseases_history.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/immunization_history_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/taken_medicines_page.dart';
