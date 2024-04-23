@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medicory_gp/Pages/doctor_pages/medical_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/add_prescription_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/doc_labtests_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class DocHomePage extends StatelessWidget {
-  final String id = 'DocPage';
+  static final String id = 'DocPage';
   const DocHomePage({super.key});
 
   @override
@@ -18,17 +21,29 @@ class DocHomePage extends StatelessWidget {
         child: Column(
           children: [
             Spacer(flex: 2),
-            CustomButton(title: 'Patient personal info', onPressed: () {}),
+            CustomButton(
+                title: 'Patient personal info',
+                onPressed: () {
+                  Navigator.pushNamed(context, PatientInfoPage.id);
+                }),
             Spacer(flex: 1),
             CustomButton(
                 title: 'Medical history',
                 onPressed: () {
-                  Navigator.pushNamed(context, MedicalHistoryPage().id);
+                  Navigator.pushNamed(context, MedicalHistoryPage.id);
                 }),
             Spacer(flex: 1),
-            CustomButton(title: 'The prescription', onPressed: () {}),
+            CustomButton(
+                title: 'The prescription',
+                onPressed: () {
+                  Navigator.pushNamed(context, AddPrescriptionPage.id);
+                }),
             Spacer(flex: 1),
-            CustomButton(title: 'Lab Tests', onPressed: () {}),
+            CustomButton(
+                title: 'Lab Tests',
+                onPressed: () {
+                  Navigator.pushNamed(context, DocLabtestsPage.id);
+                }),
             Spacer(flex: 2),
           ],
         ),

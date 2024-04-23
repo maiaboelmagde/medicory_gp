@@ -5,7 +5,7 @@ import 'package:medicory_gp/widgets/custom_button.dart';
 import 'package:medicory_gp/widgets/login_upper_part.dart';
 
 class LoginPage extends StatelessWidget {
-  final String id = 'loginPage';
+  static final String id = 'loginPage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +102,7 @@ class LoginPage extends StatelessWidget {
                           title: 'Log In',
                           onPressed: () {
                             Navigator.pop(context);
-                            Navigator.pushNamed(context, DocHomePage().id);
+                            Navigator.pushNamed(context, DocHomePage.id);
                           },
                         ),
                         SizedBox(

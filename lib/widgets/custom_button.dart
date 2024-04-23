@@ -9,25 +9,28 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInUp(
-        duration: Duration(milliseconds: 1600),
-        child: MaterialButton(
-          onPressed: onPressed,
-          height: 50,
-          // margin: EdgeInsets.symmetric(horizontal: 50),
-          color: Colors.orange[900],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          // decoration: BoxDecoration(
-          // ),
-          child: Center(
-            child: Text(
-              title,
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: FadeInUp(
+          duration: Duration(milliseconds: 1600),
+          child: MaterialButton(
+            onPressed: onPressed,
+            height: 50,
+            // margin: EdgeInsets.symmetric(horizontal: 50),
+            color: Colors.orange[900],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50),
             ),
-          ),
-        ));
+            // decoration: BoxDecoration(
+            // ),
+            child: Center(
+              child: Text(
+                title,
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          )),
+    );
   }
 }
