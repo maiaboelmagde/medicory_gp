@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/add_disease_page.dart';
-import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_details_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_pages_hierarchy/add_disease_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/disease_pages_hierarchy/disease_details_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class DiseaseHistoryPage extends StatelessWidget {

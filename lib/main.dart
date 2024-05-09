@@ -8,9 +8,13 @@ import 'package:medicory_gp/Pages/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/doc_home_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/imaging_results.dart';
+import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/required_imaging.dart';
+import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/required_tests.dart';
 import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/Pages/login_page.dart';
+import 'package:medicory_gp/Pages/owner_pages/owner_home_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -35,6 +39,10 @@ class MyApp extends StatelessWidget {
         ImmunizationHistoryPage.id: (context) =>
             const ImmunizationHistoryPage(),
         TestsResultsPage.id: (context) => const TestsResultsPage(),
+        ImagingResultsPage.id: (context) => const ImagingResultsPage(),
+        RequiredImagingPage.id: (context) => const RequiredImagingPage(),
+        RequiredTestsPage.id: (context) => RequiredTestsPage(),
+        OwnerHomePage.id: (context) => OwnerHomePage(),
       },
       initialRoute: LoginPage.id,
     );

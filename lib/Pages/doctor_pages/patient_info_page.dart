@@ -3,7 +3,7 @@ import 'package:medicory_gp/widgets/patient_info_container.dart';
 
 class PatientInfoPage extends StatelessWidget {
   const PatientInfoPage({super.key});
-  static final String id = 'PatientInfoPage';
+  static const String id = 'PatientInfoPage';
 
   @override
   Widget build(BuildContext context) {

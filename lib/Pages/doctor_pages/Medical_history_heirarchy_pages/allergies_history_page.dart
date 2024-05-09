@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AllergiesHistoryPage extends StatelessWidget {
-  static final String id = "AllergiesHistoryPage";
+  static const String id = "AllergiesHistoryPage";
   const AllergiesHistoryPage({super.key});
 
   @override

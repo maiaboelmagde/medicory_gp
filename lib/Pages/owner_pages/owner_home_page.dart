@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:medicory_gp/Pages/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
+import 'package:medicory_gp/widgets/search_textfield.dart';
 
-class DocHomePage extends StatelessWidget {
-  static const String id = 'DocPage';
-  const DocHomePage({super.key});
+class OwnerHomePage extends StatelessWidget {
+  static const String id = 'OwnerHomePage';
+  const OwnerHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Doc home page'),
+        title: Text('Owner Home Page'),
         centerTitle: true,
       ),
       body: Padding(
@@ -21,11 +23,9 @@ class DocHomePage extends StatelessWidget {
         child: Column(
           children: [
             Spacer(flex: 2),
-            CustomButton(
-                title: 'Patient personal info',
-                onPressed: () {
-                  Navigator.pushNamed(context, PatientInfoPage.id);
-                }),
+            SearchTextField(onchange: (data) {}),
+            Spacer(flex: 1),
+            CustomButton(title: 'Current Medical Schedule', onPressed: () {}),
             Spacer(flex: 1),
             CustomButton(
                 title: 'Medical history',
@@ -34,15 +34,15 @@ class DocHomePage extends StatelessWidget {
                 }),
             Spacer(flex: 1),
             CustomButton(
-                title: 'The prescription',
+                title: 'Tests Results',
                 onPressed: () {
-                  Navigator.pushNamed(context, AddPrescriptionPage.id);
+                  Navigator.pushNamed(context, TestsResultsPage.id);
                 }),
             Spacer(flex: 1),
             CustomButton(
-                title: 'Lab Tests',
+                title: 'Personal Information',
                 onPressed: () {
-                  Navigator.pushNamed(context, DocLabtestsPage.id);
+                  Navigator.pushNamed(context, PatientInfoPage.id);
                 }),
             Spacer(flex: 2),
           ],

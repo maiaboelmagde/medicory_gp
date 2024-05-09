@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DiseaseDetailsPage extends StatelessWidget {
-  static final String id = "DiseaseDetailsPage";
+  static const String id = "DiseaseDetailsPage";
   final String title;
   const DiseaseDetailsPage({super.key, required this.title});
 
