@@ -3,11 +3,13 @@ import 'package:medicory_gp/Pages/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/patient_info_page.dart';
+import 'package:medicory_gp/models/patient_info_model.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 
 class DocHomePage extends StatelessWidget {
   static const String id = 'DocPage';
-  const DocHomePage({super.key});
+  final PatientInfoModel patientInfo;
+  const DocHomePage({super.key , required this.patientInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,9 @@ class DocHomePage extends StatelessWidget {
             CustomButton(
                 title: 'Patient personal info',
                 onPressed: () {
-                  Navigator.pushNamed(context, PatientInfoPage.id);
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return PatientInfoPage(myInfo: patientInfo);
+                  }));
                 }),
             Spacer(flex: 1),
             CustomButton(

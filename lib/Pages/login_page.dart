@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/Pages/doctor_pages/doc_home_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/search_for_patient_page.dart';
 import 'package:medicory_gp/widgets/custom_button.dart';
 import 'package:medicory_gp/widgets/login_upper_part.dart';
 
@@ -102,7 +103,7 @@ class LoginPage extends StatelessWidget {
                           title: 'Log In',
                           onPressed: () {
                             Navigator.pop(context);
-                            Navigator.pushNamed(context, DocHomePage.id);
+                            Navigator.pushNamed(context, SearchForPatientPage.id);
                           },
                         ),
                         SizedBox(

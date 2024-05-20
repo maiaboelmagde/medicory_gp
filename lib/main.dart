@@ -13,6 +13,7 @@ import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/required_imag
 import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/required_tests.dart';
 import 'package:medicory_gp/Pages/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/Pages/doctor_pages/patient_info_page.dart';
+import 'package:medicory_gp/Pages/doctor_pages/search_for_patient_page.dart';
 import 'package:medicory_gp/Pages/login_page.dart';
 import 'package:medicory_gp/Pages/owner_pages/owner_home_page.dart';
 
@@ -27,9 +28,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         LoginPage.id: (context) => LoginPage(),
-        DocHomePage.id: (context) => const DocHomePage(),
+        // DocHomePage.id: (context) => const DocHomePage(),
+        SearchForPatientPage.id : (context)=> const SearchForPatientPage(),
         MedicalHistoryPage.id: (context) => const MedicalHistoryPage(),
-        PatientInfoPage.id: (context) => const PatientInfoPage(),
+        // PatientInfoPage.id: (context) => const PatientInfoPage(),
         DocLabtestsPage.id: (context) => const DocLabtestsPage(),
         AddPrescriptionPage.id: (context) => const AddPrescriptionPage(),
         DiseaseHistoryPage.id: (context) => const DiseaseHistoryPage(),
