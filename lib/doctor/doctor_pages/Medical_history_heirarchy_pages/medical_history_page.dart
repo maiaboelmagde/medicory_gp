@@ -21,37 +21,37 @@ class MedicalHistoryPage extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Spacer(flex: 2),
+            SizedBox(height: 50,),
             CustomButton(
                 title: 'Chronic diseases',
                 onPressed: () {
                   Navigator.pushNamed(context, DiseaseHistoryPage.id);
                 }),
-            Spacer(flex: 1),
+            SizedBox(height: 50,),
             CustomButton(
                 title: 'Medicines',
                 onPressed: () {
                   Navigator.pushNamed(context, TakenMedicinesPage.id);
                 }),
-            Spacer(flex: 1),
+            SizedBox(height: 50,),
             CustomButton(
                 title: 'Allergies',
                 onPressed: () {
                   Navigator.pushNamed(context, AllergiesHistoryPage.id);
                 }),
-            Spacer(flex: 1),
+            SizedBox(height: 50,),
             CustomButton(
                 title: 'Surgical history',
                 onPressed: () {
                   Navigator.pushNamed(context, SurgicalHistoryPage.id);
                 }),
-            Spacer(flex: 1),
+            SizedBox(height: 50,),
             CustomButton(
                 title: 'Immunization *',
                 onPressed: () {
                   Navigator.pushNamed(context, ImmunizationHistoryPage.id);
                 }),
-            Spacer(flex: 2),
+            SizedBox(height: 50,),
           ],
         ),
       ),

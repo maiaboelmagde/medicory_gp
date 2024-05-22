@@ -28,6 +28,7 @@ class SearchForPatientPage extends StatelessWidget {
                   },
                   onSubmitted: (value) async {
                     var getPatientCubit = BlocProvider.of<GetPatientCubit>(context);
+                    getPatientCubit.getPatient(patientCode: code);
                     Navigator.pop(context);
                     
                   },
