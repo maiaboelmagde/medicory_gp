@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -119,6 +118,7 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                                             .then((data) {
                                           myInfo = data;
                                           loading = false;
+                                          update_flag = false;
                                           setState(() {});
                                         });
                                       });
