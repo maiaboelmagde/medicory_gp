@@ -28,6 +28,7 @@ class SurgicalHistoryPage extends StatelessWidget {
                     return SurgeryWidget(
                         surgeryInfo: snap.data?[indx] ??
                             SurgeryModel(
+                              id: -1,
                                 createdAt: '',
                                 updatedAt: '',
                                 name: '',
