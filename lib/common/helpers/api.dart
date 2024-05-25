@@ -108,5 +108,15 @@ class Api {
     }
   }
 
-  
+  Future<String> deleteReturnString({required String url}) async {
+    http.Response response = await http.delete(Uri.parse(url));
+
+    if (response.statusCode == 202) {
+      // String responseString = jsonDecode(response.body);
+      return response.body;
+    } else {
+      throw Exception(
+          "There is an error with StatusCode ${response.statusCode} at Api().post(...) while the body is ${response.body}");
+    }
+  }
 }

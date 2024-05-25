@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
 import 'package:medicory_gp/doctor/models/surgery_model.dart';
+import 'package:medicory_gp/doctor/services/delete_surgery_service.dart';
 import 'package:medicory_gp/doctor/services/get_surgery_by_id_service.dart';
 import 'package:medicory_gp/doctor/services/update_surgery_service.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
@@ -49,6 +49,19 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                         setState(() {});
                       },
                       icon: Icon(Icons.arrow_drop_down),
+                    ),
+                    Spacer(),
+                    GestureDetector(
+                      child: Icon(Icons.delete),
+                      onTap: () {
+                        DeleteSurgeryService()
+                            .deleteSurgery(id: myInfo.id)
+                            .then((value) {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(SnackBar(content: Text(value + ' , please ,Update the page')));
+                          
+                        });
+                      },
                     )
                   ],
                 ),
