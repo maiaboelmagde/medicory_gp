@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
 import 'package:medicory_gp/doctor/services/diseases_services.dart';
+import 'package:medicory_gp/doctor/services/immunizations_services.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
 
-class AddNewDisease extends StatelessWidget {
-  const AddNewDisease({super.key, required this.topic});
-  final String topic;
+class AddNewimmunizations extends StatelessWidget {
+  const AddNewimmunizations({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +36,8 @@ class AddNewDisease extends StatelessWidget {
               onPressed: () {
                 if (newName != null) {
                   if (newInformation != null) {
-                    DiseasesServices(topic: topic)
-                        .AddNewDisease(
+                    ImmunizationsServices()
+                        .AddNewimmunizations(
                             code: BlocProvider.of<GetPatientCubit>(context)
                                 .patientInfoModel
                                 .code,

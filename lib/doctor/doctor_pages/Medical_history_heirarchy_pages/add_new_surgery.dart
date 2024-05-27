@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
-import 'package:medicory_gp/doctor/services/Add_new_surgery_service.dart';
+import 'package:medicory_gp/doctor/services/surgeries_services.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
 
@@ -35,8 +35,8 @@ class AddNewSurgery extends StatelessWidget {
               onPressed: () {
                 if (newName != null) {
                   if (newDescription != null) {
-                    AddNewSurgeryService()
-                        .add(
+                    SurgeriesServices()
+                        .AddNewSurgery(
                             code: BlocProvider.of<GetPatientCubit>(context)
                                 .patientInfoModel
                                 .code,

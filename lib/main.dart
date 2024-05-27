@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           PatientInfoPage.id: (context) => const PatientInfoPage(),
           DocLabtestsPage.id: (context) => const DocLabtestsPage(),
           AddPrescriptionPage.id: (context) => const AddPrescriptionPage(),
-          DiseaseHistoryPage.id: (context) => const DiseaseHistoryPage(),
+          // DiseaseHistoryPage.id: (context) => const DiseaseHistoryPage(),
           TakenMedicinesPage.id: (context) => const TakenMedicinesPage(),
           AllergiesHistoryPage.id: (context) => const AllergiesHistoryPage(),
           SurgicalHistoryPage.id: (context) => const SurgicalHistoryPage(),

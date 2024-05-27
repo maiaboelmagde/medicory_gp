@@ -21,11 +21,11 @@ class PatientLoadedPage extends StatelessWidget {
   const PatientLoadedPage({super.key});
 
   static List<Map<String, dynamic>> medicalHistory = [
-    {'title': 'Chronic diseases', 'onPressed': DiseaseHistoryPage.id},
-    {'title': 'Medicines', 'onPressed': TakenMedicinesPage.id},
-    {'title': 'Allergies', 'onPressed': AllergiesHistoryPage.id},
-    {'title': 'Surgical history', 'onPressed': SurgicalHistoryPage.id},
-    {'title': 'Immunization *', 'onPressed': ImmunizationHistoryPage.id},
+    {'title': 'Chronic diseases', 'onPressed': DiseaseHistoryPage(topic: 'chronic-diseases' ,),'method': 'notnamed'},
+    // {'title': 'Medicines', 'onPressed': TakenMedicinesPage.id,'method': 'named'},
+    {'title': 'Allergies', 'onPressed': DiseaseHistoryPage(topic: 'allergies' ,) ,'method': 'notnamed'},
+    {'title': 'Surgical history', 'onPressed': SurgicalHistoryPage.id,'method': 'named'},
+    {'title': 'Immunization *', 'onPressed': DiseaseHistoryPage(topic: 'immunizations' ,),'method': 'notnamed'},
   ];
 
   @override
@@ -68,10 +68,10 @@ class PatientLoadedPage extends StatelessWidget {
           ListedCustomButton(
             title: 'Lab Tests',
             myList: [
-              {'title': 'Tests Results', 'onPressed': TestsResultsPage.id},
-              {'title': 'Imaging Results', 'onPressed': ImagingResultsPage.id},
-              {'title': 'Required Tests', 'onPressed': RequiredTestsPage.id},
-              {'title':  'Imaging (X-rays, atc)', 'onPressed': RequiredImagingPage.id},
+              {'title': 'Tests Results', 'onPressed': TestsResultsPage.id, 'method': 'named'},
+              {'title': 'Imaging Results', 'onPressed': ImagingResultsPage.id, 'method': 'named'},
+              {'title': 'Required Tests', 'onPressed': RequiredTestsPage.id, 'method': 'named'},
+              {'title':  'Imaging (X-rays, atc)', 'onPressed': RequiredImagingPage.id, 'method': 'named'},
             ],
             // onPressed: () {
             //   Navigator.pushNamed(context, DocLabtestsPage.id);

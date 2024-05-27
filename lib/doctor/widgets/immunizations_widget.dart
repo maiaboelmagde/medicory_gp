@@ -1,28 +1,33 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
+import 'package:medicory_gp/doctor/models/disease_model.dart';
 import 'package:medicory_gp/doctor/models/surgery_model.dart';
+import 'package:medicory_gp/doctor/services/diseases_services.dart';
+import 'package:medicory_gp/doctor/services/immunizations_services.dart';
 import 'package:medicory_gp/doctor/services/surgeries_services.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
 
-class SurgeryWidget extends StatefulWidget {
-  const SurgeryWidget({super.key, required this.surgeryInfo});
-  final SurgeryModel surgeryInfo;
+class immunizationsWidget extends StatefulWidget {
+  const immunizationsWidget({super.key, required this.diseaseInfo});
+  final DiseaseModel diseaseInfo;
 
   @override
-  State<SurgeryWidget> createState() =>
-      _SurgeryWidgetState(myInfo: surgeryInfo);
+  State<immunizationsWidget> createState() =>
+      _immunizationsWidgetState(myInfo: diseaseInfo);
 }
 
-class _SurgeryWidgetState extends State<SurgeryWidget> {
-  _SurgeryWidgetState({required this.myInfo});
-  SurgeryModel myInfo;
+class _immunizationsWidgetState extends State<immunizationsWidget> {
+  _immunizationsWidgetState({required this.myInfo});
+  DiseaseModel myInfo;
   bool loading = false;
   bool flag = true;
   bool update_flag = false;
   String? newName;
-  String? newDescription;
+  String? newInformation;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +57,8 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                     GestureDetector(
                       child: Icon(Icons.delete),
                       onTap: () {
-                        SurgeriesServices()
-                            .deleteSurgery(id: myInfo.id)
+                        ImmunizationsServices()
+                            .deleteimmunization(id: myInfo.id)
                             .then((value) {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text(value + ' , please ,Update the page')));
@@ -90,8 +95,8 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                     GestureDetector(
                       child: Icon(Icons.delete),
                       onTap: () {
-                        SurgeriesServices()
-                            .deleteSurgery(id: myInfo.id)
+                        ImmunizationsServices()
+                            .deleteimmunization(id: myInfo.id)
                             .then((value) {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text(value + ' , please ,Update the page')));
@@ -106,7 +111,7 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                     ),
                     Text('Created at : ' + myInfo.createdAt),
                     Text('Updated at : ' + myInfo.updatedAt),
-                    Text("Description : " + myInfo.description),
+                    Text("Description : " + myInfo.information),
                     (update_flag)
                         ? SizedBox(
                             height: 300,
@@ -124,7 +129,7 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                                 CustomTextField(
                                   title: 'Description',
                                   onChange: (value) {
-                                    newDescription = value;
+                                    newInformation = value;
                                   },
                                 ),
                                 CustomButton(
@@ -132,7 +137,7 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                                     onPressed: () async {
                                       loading = true;
                                       setState(() {});
-                                      SurgeriesServices()
+                                      ImmunizationsServices()
                                           .update(
                                               userCode: BlocProvider.of<
                                                       GetPatientCubit>(context)
@@ -140,11 +145,11 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                                                   .code,
                                               id: myInfo.id,
                                               name: newName ?? myInfo.name,
-                                              description: newDescription ??
-                                                  myInfo.description)
+                                              information: newInformation ??
+                                                  myInfo.information)
                                           .then((value) {
-                                        SurgeriesServices()
-                                            .getSurgery(id: myInfo.id)
+                                        ImmunizationsServices()
+                                            .getimmunizationById(id: myInfo.id)
                                             .then((data) {
                                           myInfo = data;
                                           loading = false;

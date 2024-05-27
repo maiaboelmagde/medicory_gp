@@ -70,8 +70,14 @@ class _ListedCustomButtonState extends State<ListedCustomButton> {
                         return CustomButton(
                             title: myList[indx]['title'],
                             onPressed: () {
+                               if(myList[indx]['method'] == 'named'){
                               Navigator.pushNamed(
                                   context, myList[indx]['onPressed']);
+                              }else{
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                                  return myList[indx]['onPressed'];
+                                }));
+                              }
                             });
                       }),
                 )
