@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/doctor/doctor_pages/add_prescription_page.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_info_page.dart';

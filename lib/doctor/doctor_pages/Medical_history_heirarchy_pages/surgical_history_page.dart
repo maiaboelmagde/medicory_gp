@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/common/constants.dart';
@@ -7,7 +5,6 @@ import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.da
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/add_new_surgery.dart';
 import 'package:medicory_gp/doctor/models/surgery_model.dart';
 import 'package:medicory_gp/doctor/services/surgeries_services.dart';
-import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/surgery_widget.dart';
 
 class SurgicalHistoryPage extends StatefulWidget {

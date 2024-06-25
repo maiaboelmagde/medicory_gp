@@ -9,13 +9,13 @@ import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/
 import 'package:medicory_gp/doctor/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/home_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/no_patient_page.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/imaging_results.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_imaging.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_tests.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_info_page.dart';
+import 'package:medicory_gp/doctor/doctor_pages/patient_prescriptions.dart';
 import 'package:medicory_gp/doctor/doctor_pages/search_for_patient_page.dart';
 import 'package:medicory_gp/common/Pages/login_page.dart';
 import 'package:medicory_gp/owner/owner_pages/owner_home_page.dart';
@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
           SearchForPatientPage.id: (context) => const SearchForPatientPage(),
           MedicalHistoryPage.id: (context) => const MedicalHistoryPage(),
           PatientInfoPage.id: (context) => const PatientInfoPage(),
-          DocLabtestsPage.id: (context) => const DocLabtestsPage(),
           AddPrescriptionPage.id: (context) => const AddPrescriptionPage(),
           // DiseaseHistoryPage.id: (context) => const DiseaseHistoryPage(),
           TakenMedicinesPage.id: (context) => const TakenMedicinesPage(),
@@ -51,6 +50,7 @@ class MyApp extends StatelessWidget {
           RequiredImagingPage.id: (context) => const RequiredImagingPage(),
           RequiredTestsPage.id: (context) => RequiredTestsPage(),
           OwnerHomePage.id: (context) => OwnerHomePage(),
+          PatientPrescriptions.id: (context)=>PatientPrescriptions(),
         },
         initialRoute: LoginPage.id,
       ),

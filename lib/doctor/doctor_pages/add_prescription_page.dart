@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/doctor/doctor_pages/patient_prescriptions.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
+import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
 import 'package:medicory_gp/doctor/widgets/search_textfield.dart';
 
 class AddPrescriptionPage extends StatelessWidget {
@@ -15,22 +17,23 @@ class AddPrescriptionPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+        child: ListView(
+          
           children: [
-            SearchTextField(
-              onchange: (data) {},
-            ),
+            CustomButton(
+                title: 'View Previous prescriptions ->',
+                onPressed: () {
+                  Navigator.pushNamed(context, PatientPrescriptions.id);
+                },),
+            CustomTextField(title: 'Prescription', onChange: (value){}),
             SizedBox(
               height: 20,
             ),
-            SizedBox(
-              width: 100,
-              child: CustomButton(
+            CustomButton(
                 title: 'ADD',
                 onPressed: () {},
               ),
-            ),
+            
           ],
         ),
       ),

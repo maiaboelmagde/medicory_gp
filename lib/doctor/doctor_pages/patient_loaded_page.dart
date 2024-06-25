@@ -5,7 +5,6 @@ import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/surgical_history_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/taken_medicines_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/add_prescription_page.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/doc_labtests_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/imaging_results.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_imaging.dart';

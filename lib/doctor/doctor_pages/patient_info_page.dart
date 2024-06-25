@@ -18,8 +18,8 @@ class PatientInfoPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
+        
         children: [
           PatientInfoContainer(title: 'Name : ', value: myInfo.name),
           PatientInfoContainer(title: 'Age : ', value: myInfo.age.toString()),
