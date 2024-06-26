@@ -8,7 +8,7 @@ import 'package:medicory_gp/doctor/models/tests_model.dart';
 
 class PrescriptionModel {
   final prescriptionResponseModel prescriptionResponse;
-  final List<medication> medications;
+  final List<medication>? medications;
   final List<TestsModel>? labTests;
   final List<ImagesModel>? imagingTests;
 
@@ -24,7 +24,7 @@ class PrescriptionModel {
       medicationList.add(medication.fromjson(jsonData['medications'][i]));
     }
 
-    log(medicationList[0].medicineName);
+    
 
     List<TestsModel> TestsList = [];
     for (int i = 0; i < jsonData['labTests'].length; i++) {

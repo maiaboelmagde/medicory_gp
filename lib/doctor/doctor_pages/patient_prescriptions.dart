@@ -23,7 +23,7 @@ class PatientPrescriptions extends StatelessWidget {
                 .code),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            log(snapshot.data![0].medications[0].medicineName);
+            
 
             return ListView.builder(
                 itemCount: snapshot.data!.length,
@@ -32,7 +32,7 @@ class PatientPrescriptions extends StatelessWidget {
                 });
           }else if(snapshot.hasError){
             print(snapshot.error);
-            return Text('ERRRRRRoooorrrrr');
+            return Text(snapshot.error.toString() ?? 'Errrroorrrrrrr');
           }
            else {
             return CircularProgressIndicator();
