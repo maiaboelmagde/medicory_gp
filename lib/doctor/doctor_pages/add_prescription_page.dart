@@ -1,12 +1,44 @@
-import 'package:flutter/material.dart';
-import 'package:medicory_gp/doctor/doctor_pages/patient_prescriptions.dart';
-import 'package:medicory_gp/doctor/widgets/custom_button.dart';
-import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
-import 'package:medicory_gp/doctor/widgets/search_textfield.dart';
 
-class AddPrescriptionPage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
+import 'package:medicory_gp/doctor/models/prescription_model.dart';
+import 'package:medicory_gp/doctor/services/prescription_services.dart';
+import 'package:medicory_gp/doctor/widgets/prescription_widget.dart';
+
+class AddPrescriptionPage extends StatefulWidget {
   static const String id = "AddPrescriptionPage";
-  const AddPrescriptionPage({super.key});
+   AddPrescriptionPage({super.key,});
+
+
+  @override
+  State<AddPrescriptionPage> createState() => _AddPrescriptionPageState();
+}
+
+class _AddPrescriptionPageState extends State<AddPrescriptionPage> {
+  late num myPrescriptionID;
+  late PrescriptionModel myPrescription;
+  bool loading = true;
+  @override
+
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    PrescriptionServices().addService(userCode: 
+                BlocProvider.of<GetPatientCubit>(context).patientInfoModel.code
+        , medications: [], tests: [], images: []).then((onValue){
+          myPrescriptionID = onValue;
+          PrescriptionServices().getById(id: onValue).then((onValue){
+            myPrescription = onValue;
+            loading = false;
+          setState(() {
+            
+          });
+          });
+          
+        });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,29 +46,32 @@ class AddPrescriptionPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Add Prescription :"),
         centerTitle: true,
+        actions: [
+          GestureDetector(
+            child: Icon(Icons.refresh),
+            onTap: () {
+              loading = true;
+              setState(() {});
+              PrescriptionServices()
+                  .getById(
+                       id: myPrescriptionID)
+                  .then((value) {
+                myPrescription = value;
+                loading = false;
+                setState(() {});
+              });
+            },
+          )
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          
-          children: [
-            CustomButton(
-                title: 'View Previous prescriptions ->',
-                onPressed: () {
-                  Navigator.pushNamed(context, PatientPrescriptions.id);
-                },),
-            CustomTextField(title: 'Prescription', onChange: (value){}),
-            SizedBox(
-              height: 20,
-            ),
-            CustomButton(
-                title: 'ADD',
-                onPressed: () {},
-              ),
-            
-          ],
-        ),
-      ),
+      body:(loading)?
+      Center(child: CircularProgressIndicator())
+      :ListView(
+        children: [
+          PrescriptionWidget(myInfo: myPrescription, beingcreated: true,),
+        ],
+      )
+     
     );
   }
 }

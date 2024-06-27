@@ -11,8 +11,8 @@ import 'package:medicory_gp/doctor/doctor_pages/home_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/no_patient_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/imaging_results.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_imaging.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_tests.dart';
+import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/require_imaging.dart';
+import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/adding_tests.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_prescriptions.dart';
@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
           SearchForPatientPage.id: (context) => const SearchForPatientPage(),
           MedicalHistoryPage.id: (context) => const MedicalHistoryPage(),
           PatientInfoPage.id: (context) => const PatientInfoPage(),
-          AddPrescriptionPage.id: (context) => const AddPrescriptionPage(),
+          AddPrescriptionPage.id: (context) =>  AddPrescriptionPage(),
+          PatientPrescriptions.id : (context)=>PatientPrescriptions(),
           // DiseaseHistoryPage.id: (context) => const DiseaseHistoryPage(),
           TakenMedicinesPage.id: (context) => const TakenMedicinesPage(),
           AllergiesHistoryPage.id: (context) => const AllergiesHistoryPage(),
@@ -47,8 +48,8 @@ class MyApp extends StatelessWidget {
               const ImmunizationHistoryPage(),
           TestsResultsPage.id: (context) => const TestsResultsPage(),
           ImagingResultsPage.id: (context) => const ImagingResultsPage(),
-          RequiredImagingPage.id: (context) => const RequiredImagingPage(),
-          RequiredTestsPage.id: (context) => RequiredTestsPage(),
+          RequireImagingPage.id: (context) => const RequireImagingPage(),
+          AddingTestsPage.id: (context) => AddingTestsPage(),
           OwnerHomePage.id: (context) => OwnerHomePage(),
           PatientPrescriptions.id: (context)=>PatientPrescriptions(),
         },

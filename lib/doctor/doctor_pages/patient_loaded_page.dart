@@ -7,11 +7,12 @@ import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/
 import 'package:medicory_gp/doctor/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/medical_history_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/imaging_results.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_imaging.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/required_tests.dart';
+import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/require_imaging.dart';
+import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/adding_tests.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/tests_results_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/common/models/patient_info_model.dart';
+import 'package:medicory_gp/doctor/doctor_pages/patient_prescriptions.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/listed_custom_button.dart';
 
@@ -59,7 +60,7 @@ class PatientLoadedPage extends StatelessWidget {
           CustomButton(
               title: 'The prescription',
               onPressed: () {
-                Navigator.pushNamed(context, AddPrescriptionPage.id);
+                Navigator.pushNamed(context, PatientPrescriptions.id);
               }),
           SizedBox(
             height: 50,
@@ -69,8 +70,8 @@ class PatientLoadedPage extends StatelessWidget {
             myList: [
               {'title': 'Tests Results', 'onPressed': TestsResultsPage.id, 'method': 'named'},
               {'title': 'Imaging Results', 'onPressed': ImagingResultsPage.id, 'method': 'named'},
-              {'title': 'Required Tests', 'onPressed': RequiredTestsPage.id, 'method': 'named'},
-              {'title':  'Imaging (X-rays, atc)', 'onPressed': RequiredImagingPage.id, 'method': 'named'},
+              // {'title': 'Required Tests', 'onPressed': AddingTestsPage.id, 'method': 'named'},
+              // {'title':  'Imaging (X-rays, atc)', 'onPressed': RequireImagingPage.id, 'method': 'named'},
             ],
             // onPressed: () {
             //   Navigator.pushNamed(context, DocLabtestsPage.id);

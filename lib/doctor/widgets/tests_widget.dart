@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
-import 'package:medicory_gp/doctor/models/surgery_model.dart';
 import 'package:medicory_gp/doctor/models/tests_model.dart';
-import 'package:medicory_gp/doctor/services/surgeries_services.dart';
 import 'package:medicory_gp/doctor/services/tests_services.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
@@ -13,8 +11,7 @@ class TestsWidget extends StatefulWidget {
   final TestsModel testInfo;
 
   @override
-  State<TestsWidget> createState() =>
-      _SurgeryWidgetState(myInfo: testInfo);
+  State<TestsWidget> createState() => _SurgeryWidgetState(myInfo: testInfo);
 }
 
 class _SurgeryWidgetState extends State<TestsWidget> {
@@ -55,14 +52,13 @@ class _SurgeryWidgetState extends State<TestsWidget> {
                     GestureDetector(
                       child: Icon(Icons.delete),
                       onTap: () {
-                        TestsServices().deleteTest(id: myInfo.id)
+                        TestsServices()
+                            .deleteTest(context, id: myInfo.id)
                             .then((value) {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(SnackBar(content: Text(value + ' , please ,Update the page')));
-                              setState(() {
-                                
-                              });
-                          
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text(value + ' , please ,Update the page')));
+                          setState(() {});
                         });
                       },
                     )
@@ -88,29 +84,33 @@ class _SurgeryWidgetState extends State<TestsWidget> {
                           },
                           icon: Icon(Icons.arrow_drop_up),
                         ),
-                         Spacer(),
-                    GestureDetector(
-                      child: Icon(Icons.delete),
-                      onTap: () {
-                        TestsServices().deleteTest(id: myInfo.id)
-                            .then((value) {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(SnackBar(content: Text(value + ' , please ,Update the page')));
-                              setState(() {
-                                
-                              });
-                          
-                        });
-                      },
-                    )
+                        Spacer(),
+                        GestureDetector(
+                          child: Icon(Icons.delete),
+                          onTap: () {
+                            TestsServices()
+                                .deleteTest(context,id: myInfo.id)
+                                .then((value) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(value +
+                                          ' , please ,Update the page')));
+                              setState(() {});
+                            });
+                          },
+                        )
                       ],
                     ),
-                    
                     Text("Description : " + myInfo.description),
-                    Text('test Notes : '+ (myInfo.testNotes ?? 'Not assigned yet')),
+                    Text('Test Notes : ' +
+                        (myInfo.testNotes ?? 'Not assigned yet')),
+                    Text('Test Result : ' +
+                        (myInfo.testResult ?? 'Not assigned yet')),
+                    Text('Updated at : ' +
+                        (myInfo.updatedAt ?? 'Didn\'t update')),
                     (update_flag)
                         ? SizedBox(
-                            height: 320,
+                            height: 420,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -128,7 +128,7 @@ class _SurgeryWidgetState extends State<TestsWidget> {
                                     newDescription = value;
                                   },
                                 ),
-                                 Text('New Notes : '),
+                                Text('New Notes : '),
                                 CustomTextField(
                                   title: 'Notes',
                                   onChange: (value) {
@@ -149,7 +149,13 @@ class _SurgeryWidgetState extends State<TestsWidget> {
                                               id: myInfo.id,
                                               name: newName ?? myInfo.name,
                                               description: newDescription ??
-                                                  myInfo.description, imageResult: '', resultNotes: newResultNotes ?? myInfo.testNotes ?? '', status: true)
+                                                  myInfo.description,
+                                              testResult:
+                                                  myInfo.testResult ?? '',
+                                              resultNotes: newResultNotes ??
+                                                  myInfo.testNotes ??
+                                                  '',
+                                              status: true)
                                           .then((value) {
                                         TestsServices()
                                             .getTest(id: myInfo.id)

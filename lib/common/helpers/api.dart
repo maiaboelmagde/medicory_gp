@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -60,6 +61,48 @@ class Api {
     if (response.statusCode == 201) {
       // String responseString = jsonDecode(response.body);
       return response.body;
+    } else {
+      throw Exception(
+          "There is an error with StatusCode ${response.statusCode} at Api().post(...) while the body is ${body} and response is ${response.body}");
+    }
+  }
+  Future<String> postGetListReturnString(
+      {required String url,
+      required List<Map<String, dynamic>> body,
+      @required token}) async {
+    Map<String, String> headers = {};
+    headers.addAll({'Content-Type': 'application/json'});
+    if (token != null) {
+      headers.addAll({'Authorization': 'Bearer $token'});
+    }
+    http.Response response = await http.post(Uri.parse(url),
+        body: json.encode(body), headers: headers);
+
+    if (response.statusCode == 201) {
+      // String responseString = jsonDecode(response.body);
+      return response.body;
+    } else {
+      throw Exception(
+          "There is an error with StatusCode ${response.statusCode} at Api().post(...) while the body is ${response.body}");
+    }
+  }
+
+  Future<num> postReturnNum(
+      {required String url,
+      required Map<String, dynamic> body,
+      @required token}) async {
+    Map<String, String> headers = {};
+    headers.addAll({'Content-Type': 'application/json'});
+    if (token != null) {
+      headers.addAll({'Authorization': 'Bearer $token'});
+    }
+    http.Response response = await http.post(Uri.parse(url),
+        body: json.encode(body), headers: headers);
+
+    if (response.statusCode == 200) {
+      num myresponse = jsonDecode(response.body);
+      log(myresponse);
+      return myresponse;
     } else {
       throw Exception(
           "There is an error with StatusCode ${response.statusCode} at Api().post(...) while the body is ${response.body}");
