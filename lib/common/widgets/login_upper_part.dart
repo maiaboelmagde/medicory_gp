@@ -25,18 +25,7 @@ class LoginUpperPart extends StatelessWidget {
             const SizedBox(
               height: 70,
             ),
-            FadeInUp(
-                duration: const Duration(milliseconds: 1300),
-                child: const Row(
-                  children: [
-                    Text(
-                      "login as :",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                    Spacer(),
-                    LogasDropDownButton(),
-                  ],
-                )),
+            
           ],
         ));
   }

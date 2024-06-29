@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 
 class ListedCustomButton extends StatefulWidget {
@@ -36,7 +37,7 @@ class _ListedCustomButtonState extends State<ListedCustomButton> {
                         },
                         height: 50,
                         // margin: EdgeInsets.symmetric(horizontal: 50),
-                        color: Colors.orange[900],
+                        color: kColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
@@ -94,7 +95,7 @@ class _ListedCustomButtonState extends State<ListedCustomButton> {
                   },
                   height: 50,
                   // margin: EdgeInsets.symmetric(horizontal: 50),
-                  color: Colors.orange[900],
+                  color:kColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),

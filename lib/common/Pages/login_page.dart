@@ -1,24 +1,30 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/constants.dart';
+import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
+import 'package:medicory_gp/common/services/login_service.dart';
 import 'package:medicory_gp/doctor/doctor_pages/home_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/no_patient_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_loaded_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/search_for_patient_page.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/common/widgets/login_upper_part.dart';
+import 'package:medicory_gp/owner/owner_pages/owner_home_page.dart';
 
 class LoginPage extends StatelessWidget {
   static const String id = 'loginPage';
   @override
   Widget build(BuildContext context) {
+    String? email;
+    String? password;
     return Scaffold(
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-          Colors.orange.shade900,
-          Colors.orange.shade800,
-          Colors.orange.shade400
+          kColorsGroup.shade900,
+          kColorsGroup.shade500,
+          kColorsGroup.shade400
         ])),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,6 +69,9 @@ class LoginPage extends StatelessWidget {
                                           bottom: BorderSide(
                                               color: Colors.grey.shade200))),
                                   child: TextField(
+                                    onChanged: (value) {
+                                      email = value;
+                                    },
                                     decoration: InputDecoration(
                                         hintText: "Email or Phone number",
                                         hintStyle:
@@ -77,6 +86,9 @@ class LoginPage extends StatelessWidget {
                                           bottom: BorderSide(
                                               color: Colors.grey.shade200))),
                                   child: TextField(
+                                    onChanged: (value) {
+                                      password = value;
+                                    },
                                     obscureText: true,
                                     decoration: InputDecoration(
                                         hintText: "Password",
@@ -104,8 +116,19 @@ class LoginPage extends StatelessWidget {
                         CustomButton(
                           title: 'Log In',
                           onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.pushNamed(context, DocHomePage.id);
+                            if (email == null || password == null) {
+                              showSnackBar(context,
+                                  'Email and Password must be entered correctly');
+                            } else {
+                              LoginServices()
+                                  .login(email: email!, password: password!).then((onValue){
+                                    Navigator.pop(context);
+                            Navigator.pushNamed(context, OwnerHomePage.id);
+                            print(onValue['id']);
+                                  });
+                                  
+                            }
+                            
                           },
                         ),
                         SizedBox(
