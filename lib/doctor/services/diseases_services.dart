@@ -1,7 +1,7 @@
 import 'package:medicory_gp/common/helpers/api.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/add_new_surgery.dart';
 import 'package:medicory_gp/doctor/models/disease_model.dart';
-import 'package:medicory_gp/doctor/models/surgery_model.dart';
+import 'package:medicory_gp/common/models/surgery_model.dart';
 
 class DiseasesServices{
   final String topic;

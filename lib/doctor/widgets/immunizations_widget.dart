@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
 import 'package:medicory_gp/doctor/models/disease_model.dart';
-import 'package:medicory_gp/doctor/models/surgery_model.dart';
+import 'package:medicory_gp/common/models/surgery_model.dart';
 import 'package:medicory_gp/doctor/services/diseases_services.dart';
 import 'package:medicory_gp/doctor/services/immunizations_services.dart';
 import 'package:medicory_gp/doctor/services/surgeries_services.dart';

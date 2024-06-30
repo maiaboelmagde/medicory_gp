@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
-import 'package:medicory_gp/doctor/models/prescription_model.dart';
+import 'package:medicory_gp/common/models/prescription_model.dart';
 import 'package:medicory_gp/doctor/services/images_services.dart';
 import 'package:medicory_gp/doctor/services/prescription_services.dart';
 import 'package:medicory_gp/doctor/services/tests_services.dart';
@@ -43,7 +43,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
         padding: EdgeInsets.all(5),
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(0.8),
+            borderRadius: BorderRadius.circular(8),
             border: Border.all(style: BorderStyle.solid)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -89,7 +89,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
               padding: EdgeInsets.all(5),
               margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(0.8),
+                  borderRadius: BorderRadius.circular(18),
                   border: Border.all(style: BorderStyle.solid, color: kColor)),
               height: 150,
               child: (myInfo.medications != null &&
@@ -249,7 +249,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
               padding: EdgeInsets.all(5),
               margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(0.8),
+                  borderRadius: BorderRadius.circular(18),
                   border: Border.all(style: BorderStyle.solid, color: kColor)),
               height: 150,
               child: (myInfo.labTests != null && myInfo.labTests!.isNotEmpty)
@@ -398,7 +398,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
               padding: EdgeInsets.all(5),
               margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(0.8),
+                  borderRadius: BorderRadius.circular(18),
                   border: Border.all(style: BorderStyle.solid, color: kColor)),
               height: 150,
               child: (myInfo.imagingTests != null &&

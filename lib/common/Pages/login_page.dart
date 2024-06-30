@@ -121,14 +121,21 @@ class LoginPage extends StatelessWidget {
                                   'Email and Password must be entered correctly');
                             } else {
                               LoginServices()
-                                  .login(email: email!, password: password!).then((onValue){
-                                    Navigator.pop(context);
-                            Navigator.pushNamed(context, OwnerHomePage.id);
-                            print(onValue['id']);
-                                  });
-                                  
+                                  .login(email: email!, password: password!)
+                                  .then((onValue) {
+                                LoginServices()
+                                    .getOwnerCode(ownerId: onValue['id'])
+                                    .then((value) {
+                                  Navigator.pop(context);
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return OwnerHomePage(ownerCode: value);
+                                  }));
+                                });
+
+                                print(onValue['id']);
+                              });
                             }
-                            
                           },
                         ),
                         SizedBox(

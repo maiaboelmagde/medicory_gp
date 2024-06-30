@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
-import 'package:medicory_gp/doctor/models/prescription_model.dart';
+import 'package:medicory_gp/common/models/prescription_model.dart';
 import 'package:medicory_gp/doctor/services/prescription_services.dart';
-import 'package:medicory_gp/doctor/widgets/prescription_widget.dart';
+import 'package:medicory_gp/common/widgets/prescription_widget.dart';
 
 class AddPrescriptionPage extends StatefulWidget {
   static const String id = "AddPrescriptionPage";

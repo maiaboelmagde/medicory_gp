@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
-import 'package:medicory_gp/doctor/models/surgery_model.dart';
+import 'package:medicory_gp/common/models/surgery_model.dart';
 import 'package:medicory_gp/doctor/services/surgeries_services.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
@@ -34,7 +35,8 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
             ? Container(
                 margin: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                decoration: BoxDecoration(border: Border.all()),
+                decoration: BoxDecoration(border: Border.all(color: kColor),
+                borderRadius: BorderRadius.circular(8)),
                 child: Row(
                   children: [
                     Text(
@@ -70,7 +72,8 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
             : Container(
                 margin: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                decoration: BoxDecoration(border: Border.all()),
+                decoration: BoxDecoration(border: Border.all(color: kColor),
+                borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   children: [
                     Row(

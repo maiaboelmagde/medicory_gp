@@ -1,7 +1,7 @@
 import 'package:medicory_gp/common/helpers/api.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/doctor/models/images_model.dart';
-import 'package:medicory_gp/doctor/models/prescription_model.dart';
+import 'package:medicory_gp/common/models/prescription_model.dart';
 import 'package:medicory_gp/doctor/models/tests_model.dart';
 
 class PrescriptionServices {

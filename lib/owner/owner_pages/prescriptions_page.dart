@@ -1,28 +1,25 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/common/constants.dart';
-import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
 import 'package:medicory_gp/doctor/doctor_pages/add_prescription_page.dart';
 import 'package:medicory_gp/doctor/services/prescription_services.dart';
 import 'package:medicory_gp/common/widgets/prescription_widget.dart';
 
-class PatientPrescriptions extends StatelessWidget {
-  const PatientPrescriptions({super.key});
+class PrescriptionsPage extends StatelessWidget {
+  const PrescriptionsPage({super.key, required this.usercode} );
+  final String usercode;
   static final String id = 'PatientPrescriptions';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Patient Prescriptions"),
+        title: Text("Prescriptions : "),
       ),
       body: FutureBuilder(
         future: PrescriptionServices().getPatientPrescription(
-            userCode: BlocProvider.of<GetPatientCubit>(context)
-                .patientInfoModel
-                .code),
+            userCode: usercode),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             
@@ -42,15 +39,7 @@ class PatientPrescriptions extends StatelessWidget {
         },
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return AddPrescriptionPage();
-          }));
-        },
-        child: Icon(Icons.add),
-        backgroundColor: kColor,
-      ),
+      
     );
   }
 }
