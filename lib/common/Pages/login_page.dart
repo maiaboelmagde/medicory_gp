@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/Pages/reset_password_page.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/common/services/login_service.dart';
@@ -106,9 +107,14 @@ class LoginPage extends StatelessWidget {
                         ),
                         FadeInUp(
                             duration: Duration(milliseconds: 1500),
-                            child: Text(
-                              "Forgot Password?",
-                              style: TextStyle(color: Colors.grey),
+                            child: GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context){return ResetPasswordPage();}));
+                              } ,
+                              child: Text(
+                                "Forgot Password?",
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             )),
                         SizedBox(
                           height: 40,
@@ -118,22 +124,32 @@ class LoginPage extends StatelessWidget {
                           onPressed: () {
                             if (email == null || password == null) {
                               showSnackBar(context,
-                                  'Email and Password must be entered correctly');
+                                  'Email and Password must be entered correctly'+ (email ?? 'email = null ')+ (password ?? 'password = null'));
                             } else {
                               LoginServices()
                                   .login(email: email!, password: password!)
                                   .then((onValue) {
-                                LoginServices()
-                                    .getOwnerCode(ownerId: onValue['id'])
-                                    .then((value) {
-                                  Navigator.pop(context);
-                                  Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    return OwnerHomePage(ownerCode: value);
-                                  }));
-                                });
+                                if (onValue != null ) {
+                                  LoginServices()
+                                      .getOwnerCode(ownerId: onValue.id, loginInfo: onValue )
+                                      .then((value) {
+                                    if (value != null) {
+                                      Navigator.pop(context);
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return OwnerHomePage(ownerCode: value);
+                                      }));
+                                    } else {
+                                      showSnackBar(context,
+                                          'Some thing went wrong , please try again');
+                                    }
+                                  });
 
-                                print(onValue['id']);
+                                 
+                                } else {
+                                  showSnackBar(
+                                      context, 'Invalid email or password');
+                                }
                               });
                             }
                           },
