@@ -18,7 +18,7 @@ import 'package:medicory_gp/doctor/doctor_pages/patient_info_page.dart';
 import 'package:medicory_gp/doctor/doctor_pages/patient_prescriptions.dart';
 import 'package:medicory_gp/doctor/doctor_pages/search_for_patient_page.dart';
 import 'package:medicory_gp/common/Pages/login_page.dart';
-import 'package:medicory_gp/owner/owner_pages/Notifications_page.dart';
+import 'package:medicory_gp/owner/owner_pages/owner_search_page.dart';
 import 'package:medicory_gp/owner/owner_pages/medical_schedule_page.dart';
 import 'package:medicory_gp/owner/owner_pages/owner_home_page.dart';
 import 'package:medicory_gp/owner/owner_pages/personal_info_page.dart';

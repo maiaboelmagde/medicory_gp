@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/Pages/login_page.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/owner/models/owner_model.dart';
 import 'package:medicory_gp/owner/widgets/owner_bottom_navigation_bar.dart';
@@ -94,18 +95,24 @@ class SettingsPage extends StatelessWidget {
                             children: [Spacer(), Icon(Icons.send),Spacer(), Text('Send a feedback',style: TextStyle(fontSize: 20),),Spacer(flex: 2,),Icon(Icons.arrow_right_outlined)],
                           ),
                         ),
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.all(10),
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(60),
-                              )),
-                          child: Row(
-                            children: [Spacer(), Icon(Icons.logout),Spacer(), Text('Log Out',style: TextStyle(fontSize: 20),),Spacer(flex: 2,)],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, LoginPage.id);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            margin: EdgeInsets.all(10),
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(60),
+                                )),
+                            child: Row(
+                              children: [Spacer(), Icon(Icons.logout),Spacer(), Text('Log Out',style: TextStyle(fontSize: 20),),Spacer(flex: 2,)],
+                            ),
                           ),
                         )
                       ],
