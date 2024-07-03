@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
-import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/adding_tests.dart';
 import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/require_imaging.dart';
 import 'package:medicory_gp/doctor/models/images_model.dart';
-import 'package:medicory_gp/doctor/models/tests_model.dart';
 import 'package:medicory_gp/doctor/services/images_services.dart';
-import 'package:medicory_gp/doctor/services/tests_services.dart';
 import 'package:medicory_gp/doctor/widgets/imaging_tests_widget.dart';
-import 'package:medicory_gp/doctor/widgets/tests_widget.dart';
 
 class ImagingResultsPage extends StatefulWidget {
   static const String id = "ImagingResultsPage";
-  const ImagingResultsPage({super.key});
+  const ImagingResultsPage({super.key,});
 
   @override
   State<ImagingResultsPage> createState() => _ImagingResultsPageState();

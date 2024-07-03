@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/common/constants.dart';
+import 'package:medicory_gp/doctor/doctor_pages/lab_pages_hierarchy/imaging_results.dart';
 
 import 'package:medicory_gp/owner/models/owner_model.dart';
+import 'package:medicory_gp/owner/owner_pages/Imaging_tests_page.dart';
 import 'package:medicory_gp/owner/owner_pages/allergies_history_page.dart';
 import 'package:medicory_gp/owner/owner_pages/choronic_disease_page.dart';
 import 'package:medicory_gp/owner/owner_pages/immunizations_page.dart';
+import 'package:medicory_gp/owner/owner_pages/lab_tests_results_page.dart';
 
 import 'package:medicory_gp/owner/owner_pages/prescriptions_page.dart';
 import 'package:medicory_gp/owner/owner_pages/surgrical_history_page.dart';
@@ -99,6 +102,22 @@ class OwnerHomePage extends StatelessWidget {
                               }));
                               },
                               imageName: 'images/immunizations_icon.png'),
+                               MedicalHistoryWidget(
+                              title: 'Lab Tests Results',
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return LabTestsResultsPage( userCode:  ownerCode.code,);
+                              }));
+                              },
+                              imageName: 'images/labTests.png'),
+                                MedicalHistoryWidget(
+                              title: 'Imaging Results',
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return ImagingTestsPage( userCode:  ownerCode.code,);
+                              }));
+                              },
+                              imageName: 'images/imagingTests.png'),
                         ],
                       ),
                     ),
