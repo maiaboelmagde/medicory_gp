@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/owner/models/owner_model.dart';
 import 'package:medicory_gp/owner/services/medication_schedule.dart';
 import 'package:medicory_gp/owner/widgets/medication_schedule_widget.dart';
@@ -14,6 +14,7 @@ class MedicalSchedulePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kColor,
         title: Text('Medical Schedule page'),
       ),
       body: FutureBuilder(
@@ -27,7 +28,7 @@ class MedicalSchedulePage extends StatelessWidget {
                     return MedicationScheduleWidget(medicine: snap.data![indx]);
                   });
             } else if (snap.hasError) {
-              
+              print(snap.error);
                   return Center(child: Text("This owner doesn't have current medication schedule!"));
             }else{
               return Center(child: CircularProgressIndicator(),);

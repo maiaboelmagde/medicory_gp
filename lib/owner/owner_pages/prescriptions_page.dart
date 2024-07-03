@@ -15,6 +15,7 @@ class PrescriptionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kColor,
         title: Text("Prescriptions : "),
       ),
       body: FutureBuilder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/owner/services/medical_history_services.dart';
 import 'package:medicory_gp/owner/widgets/surgery_widget.dart';
@@ -10,7 +11,7 @@ class SurgricalHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:  Text('Surgeries : ')),
+      appBar: AppBar(title:  Text('Surgeries : '),backgroundColor: kColor,),
       body: FutureBuilder(
           future: MedicalHistoryServices().getAllSurgries(UserCode: UserCode),
           builder: (context, snap) {

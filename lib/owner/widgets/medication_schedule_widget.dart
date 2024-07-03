@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/common/constants.dart';
-import 'package:medicory_gp/common/models/prescription_model.dart';
+import 'package:medicory_gp/owner/models/medicine_model.dart';
 
 class MedicationScheduleWidget extends StatefulWidget {
   const MedicationScheduleWidget({super.key, required this.medicine});
-  final medication medicine;
+  final MedicineModel medicine;
 
   @override
   State<MedicationScheduleWidget> createState() => _MedicationScheduleWidgetState();
@@ -38,6 +38,7 @@ bool showDetails = false;
                 ),
                 Text( 'Dose : ' + widget.medicine.dose),
                 Text('Frequency : ' + widget.medicine.frequency.toString()),
+                Text('Side Effects : '+(widget.medicine.sideEffects??'not assigned')),
                 Text('Tips : ' + widget.medicine.tips)
               ],
             ),

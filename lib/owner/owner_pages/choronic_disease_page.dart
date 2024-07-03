@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/owner/services/medical_history_services.dart';
 import 'package:medicory_gp/owner/widgets/disease_widget.dart';
@@ -11,6 +12,7 @@ class ChoronicDiseasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kColor,
         title: Text('Choronic Diseases : '),
       ),
       body: FutureBuilder(

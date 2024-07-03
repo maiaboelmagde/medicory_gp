@@ -14,6 +14,7 @@ class PersonalInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kColor,
         title: Text('Personal Info'),
       ),
       body: FutureBuilder(

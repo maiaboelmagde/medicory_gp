@@ -21,7 +21,8 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: kColor),
-                borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(8),color: Colors.white,),
+                
             child: Column(
               children: [
                 Row(
@@ -47,7 +48,8 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: kColor),
-                borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.white,),
             child: Row(
               children: [
                 Text(widget.diseaseInfo.name),

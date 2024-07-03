@@ -89,13 +89,13 @@ class medication {
       @required this.updatedAt});
 
   factory medication.fromjson(jsonData) {
+    print(jsonData['name']);
     return medication(
         id: jsonData['id'],
         medicineName: jsonData['name'],
         dose: jsonData['dose'],
         frequency: jsonData['frequency'],
         tips: jsonData['tips'],
-        createdAt: jsonData['createdAt'],
-        updatedAt: jsonData['updatedAt']);
+        );
   }
 }
