@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 class LoginInfo {
   final num id;
   final String token;
@@ -14,6 +16,7 @@ class LoginInfo {
   });
 
   factory LoginInfo.fromjson(jsonData) {
+    
     return LoginInfo(
       id: jsonData['id'],
       token: jsonData['token'],

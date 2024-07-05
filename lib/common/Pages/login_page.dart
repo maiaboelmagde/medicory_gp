@@ -1,13 +1,11 @@
+import 'dart:developer';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/common/Pages/reset_password_page.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/common/services/login_service.dart';
-import 'package:medicory_gp/doctor/doctor_pages/home_page.dart';
-import 'package:medicory_gp/doctor/doctor_pages/no_patient_page.dart';
-import 'package:medicory_gp/doctor/doctor_pages/patient_loaded_page.dart';
-import 'package:medicory_gp/doctor/doctor_pages/search_for_patient_page.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/common/widgets/login_upper_part.dart';
 import 'package:medicory_gp/owner/owner_pages/owner_home_page.dart';
@@ -31,12 +29,13 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              height: 70,
+              height: 40,
             ),
             LoginUpperPart(),
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
+                  margin: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(
@@ -47,7 +46,7 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 60,
+                          height: 0,
                         ),
                         FadeInUp(
                           duration: Duration(milliseconds: 1400),
@@ -129,7 +128,9 @@ class LoginPage extends StatelessWidget {
                               LoginServices()
                                   .login(email: email!, password: password!)
                                   .then((onValue) {
+
                                 if (onValue != null ) {
+                                  
                                   LoginServices()
                                       .getOwnerCode(ownerId: onValue.id, loginInfo: onValue )
                                       .then((value) {

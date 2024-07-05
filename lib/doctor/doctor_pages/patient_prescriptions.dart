@@ -16,7 +16,21 @@ class PatientPrescriptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Patient Prescriptions"),
+        title: Text("Patient Prescriptions",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: kColor,
+        
+         actions: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 50,),
+          
+        ]
       ),
       body: FutureBuilder(
         future: PrescriptionServices().getPatientPrescription(

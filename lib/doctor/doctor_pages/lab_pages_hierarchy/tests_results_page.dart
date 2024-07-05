@@ -38,10 +38,23 @@ class _TestsResultsPageState extends State<TestsResultsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tests History :"),
-        actions: [
+        title: Text("Tests History :",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: kColor,
+        
+         actions: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 50,),
+          
+        
           GestureDetector(
-            child: Icon(Icons.refresh),
+            child: Icon(Icons.refresh,color: Colors.white,),
             onTap: () {
               loading = true;
               setState(() {});
@@ -57,6 +70,7 @@ class _TestsResultsPageState extends State<TestsResultsPage> {
               });
             },
           )
+          ,SizedBox(width: 10,)
         ],
       ),
       body: (loading == false)

@@ -50,7 +50,7 @@ class _SurgeryWidgetState extends State<SurgeryWidget> {
                 borderRadius: BorderRadius.circular(8)),
             child: Row(
               children: [
-                Text(widget.surgery.name),
+                Text(widget.surgery.name,overflow: TextOverflow.ellipsis,),
                 GestureDetector(
                   child: Icon(Icons.arrow_drop_up),
                   onTap: () {

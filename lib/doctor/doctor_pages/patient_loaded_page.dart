@@ -80,6 +80,7 @@ class PatientLoadedPage extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
+          
         ],
       ),
     );

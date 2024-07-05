@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
 import 'package:medicory_gp/doctor/services/surgeries_services.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
@@ -14,7 +15,21 @@ class AddNewSurgery extends StatelessWidget {
     String? newDescription;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add new Surgery'),
+        title: Text('Add new Surgery',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: kColor,
+        
+         actions: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 50,),
+          
+        ]
       ),
       body: Column(
         children: [

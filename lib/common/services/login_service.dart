@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:medicory_gp/common/helpers/api.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/common/models/login_info.dart';
@@ -14,6 +16,7 @@ class LoginServices {
           url: 'http://localhost:8081/auth/authenticate',
           body: {"email": email, "password": password});
           loginInfo = LoginInfo.fromjson(response);
+          
           return loginInfo;
           
     } on Exception catch (e) {

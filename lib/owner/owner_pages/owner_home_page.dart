@@ -23,9 +23,22 @@ class OwnerHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Owner Home Page'),
+        title: Text(
+          'Owner Home Page',
+          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: kColor,
+        actions: [
+          
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 50,)
+        ],
       ),
       body: Container(
         width: double.infinity,
@@ -42,115 +55,138 @@ class OwnerHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: 10),
               Text(
                 'Welcome, ' + ownerCode.firstName + ' ' + ownerCode.lastName,
                 style: TextStyle(color: Colors.white, fontSize: 30),
               ),
-              
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(60),
-                        )),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        
-                        children: [
-                          MedicalHistoryWidget(
-                            imageName: 'images/prescription_icon.png',
-                            title: 'Prescriptions',
+              Text(
+                "Here's your medical history : ",
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(60),
+                      )),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        MedicalHistoryWidget(
+                          imageName: 'images/prescription_icon.png',
+                          title: 'Prescriptions',
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return PrescriptionsPage(
+                                usercode: ownerCode.code,
+                              );
+                            }));
+                          },
+                        ),
+                        MedicalHistoryWidget(
+                          imageName: 'images/surgery_icon.png',
+                          title: 'Surgrical History',
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return SurgricalHistoryPage(
+                                UserCode: ownerCode.code,
+                              );
+                            }));
+                          },
+                        ),
+                        MedicalHistoryWidget(
+                            title: 'Choronic Diseases',
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return PrescriptionsPage(usercode: ownerCode.code,);
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return ChoronicDiseasePage(
+                                  userCode: ownerCode.code,
+                                );
                               }));
                             },
-                          ),
-                          MedicalHistoryWidget(
-                            imageName: 'images/surgery_icon.png',
-                            title: 'Surgrical History',
+                            imageName: 'images/choronic_disease_image.png'),
+                        MedicalHistoryWidget(
+                          imageName: 'images/allergies_icon.png',
+                          title: 'Allergies',
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return AllergiesHistoryPage(
+                                userCode: ownerCode.code,
+                              );
+                            }));
+                          },
+                        ),
+                        MedicalHistoryWidget(
+                            title: 'Immunizations',
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return SurgricalHistoryPage( UserCode:  ownerCode.code,);
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return ImmunizationsPage(
+                                  userCode: ownerCode.code,
+                                );
                               }));
                             },
-                          ),
-                          MedicalHistoryWidget(
-                              title: 'Choronic Diseases',
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return ChoronicDiseasePage( userCode:  ownerCode.code,);
+                            imageName: 'images/immunizations_icon.png'),
+                        MedicalHistoryWidget(
+                            title: 'Lab Tests Results',
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return LabTestsResultsPage(
+                                  userCode: ownerCode.code,
+                                );
                               }));
-                              },
-                              imageName: 'images/choronic_disease_image.png'),
-                          MedicalHistoryWidget(
-                            imageName: 'images/allergies_icon.png',
-                            title: 'Allergies',
-                             onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return AllergiesHistoryPage( userCode:  ownerCode.code,);
+                            },
+                            imageName: 'images/labTests.png'),
+                        MedicalHistoryWidget(
+                            title: 'Imaging Results',
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return ImagingTestsPage(
+                                  userCode: ownerCode.code,
+                                );
                               }));
-                              },
-                          ),
-                          MedicalHistoryWidget(
-                              title: 'Immunizations',
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return ImmunizationsPage( userCode:  ownerCode.code,);
-                              }));
-                              },
-                              imageName: 'images/immunizations_icon.png'),
-                               MedicalHistoryWidget(
-                              title: 'Lab Tests Results',
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return LabTestsResultsPage( userCode:  ownerCode.code,);
-                              }));
-                              },
-                              imageName: 'images/labTests.png'),
-                                MedicalHistoryWidget(
-                              title: 'Imaging Results',
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return ImagingTestsPage( userCode:  ownerCode.code,);
-                              }));
-                              },
-                              imageName: 'images/imagingTests.png'),
-                        ],
-                      ),
+                            },
+                            imageName: 'images/imagingTests.png'),
+                      ],
                     ),
-                  
-                    // child: Row(
-                    //   children: [
-                    //     Column(
-                    //       children: [
-                    //         Spacer(flex: 2),
-                  
-                    //        MedicalHistoryWidget(imageName: 'images/surgery_icon.png', title: 'Surgrical History',onPressed: (){}, ),
-                    //         Spacer(flex: 1),
-                  
-                    //        MedicalHistoryWidget(title: 'Choronic Diseases', onPressed: (){}, imageName: 'images/choronic_disease_image.png'),
-                    //         Spacer(flex: 2),
-                    //       ],
-                    //     ),
-                    //      Column(
-                    //       children: [
-                    //         Spacer(flex: 2),
-                  
-                    //        MedicalHistoryWidget(imageName: 'images/surgery_icon.png', title: 'Surgrical History',onPressed: (){}, ),
-                    //         Spacer(flex: 1),
-                  
-                    //        MedicalHistoryWidget(title: 'Choronic Diseases', onPressed: (){}, imageName: 'images/choronic_disease_image.png'),
-                    //         Spacer(flex: 2),
-                    //       ],
-                    //     ),
-                    //   ],
-                    // ),
                   ),
+
+                  // child: Row(
+                  //   children: [
+                  //     Column(
+                  //       children: [
+                  //         Spacer(flex: 2),
+
+                  //        MedicalHistoryWidget(imageName: 'images/surgery_icon.png', title: 'Surgrical History',onPressed: (){}, ),
+                  //         Spacer(flex: 1),
+
+                  //        MedicalHistoryWidget(title: 'Choronic Diseases', onPressed: (){}, imageName: 'images/choronic_disease_image.png'),
+                  //         Spacer(flex: 2),
+                  //       ],
+                  //     ),
+                  //      Column(
+                  //       children: [
+                  //         Spacer(flex: 2),
+
+                  //        MedicalHistoryWidget(imageName: 'images/surgery_icon.png', title: 'Surgrical History',onPressed: (){}, ),
+                  //         Spacer(flex: 1),
+
+                  //        MedicalHistoryWidget(title: 'Choronic Diseases', onPressed: (){}, imageName: 'images/choronic_disease_image.png'),
+                  //         Spacer(flex: 2),
+                  //       ],
+                  //     ),
+                  //   ],
+                  // ),
                 ),
-              
+              ),
             ],
           ),
         ),

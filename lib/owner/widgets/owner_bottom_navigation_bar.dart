@@ -23,7 +23,15 @@ class OwnerbottomNavigationBar extends StatelessWidget {
             flex: 1,
           ),
           GestureDetector(
-            child: Icon(Icons.home),
+            child: Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.home),
+                  Text('Home')
+                ],
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -35,7 +43,15 @@ class OwnerbottomNavigationBar extends StatelessWidget {
             flex: 2,
           ),
           GestureDetector(
-            child: Icon(Icons.saved_search,),
+            child: Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.saved_search),
+                  Text('Search')
+                ],
+              ),
+            ),
 
             onTap: () {
               Navigator.pop(context);
@@ -50,10 +66,17 @@ class OwnerbottomNavigationBar extends StatelessWidget {
             flex: 2,
           ),
           GestureDetector(
-            child: CircleAvatar(
-              child: Icon(Icons.person),
-              foregroundColor: kColor,
+            child: Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.person),
+                  Text('myInfo')
+                ],
+              ),
             ),
+              
+            
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -67,7 +90,15 @@ class OwnerbottomNavigationBar extends StatelessWidget {
             flex: 2,
           ),
           GestureDetector(
-            child: Icon(Icons.table_chart_outlined),
+            child: Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.table_chart_outlined),
+                  Text('Schedule')
+                ],
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -79,7 +110,15 @@ class OwnerbottomNavigationBar extends StatelessWidget {
             flex: 2,
           ),
           GestureDetector(
-            child: Icon(Icons.settings),
+            child: Container(
+              height: 50,
+              child: Column(
+                children: [
+                  Icon(Icons.settings),
+                  Text('Settings')
+                ],
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) {

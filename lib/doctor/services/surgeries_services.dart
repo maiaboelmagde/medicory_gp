@@ -24,8 +24,12 @@ class SurgeriesServices{
 
 
    Future<String>deleteSurgery({required num id})async{
-    String data = await Api().deleteReturnString(url: 'http://localhost:8081/doctors/patients/surgeries/${id}');
-    return data;
+    try {
+  String data = await Api().deleteReturnString(url: 'http://localhost:8081/doctors/patients/surgeries/${id}');
+  return data;
+} on Exception catch (e) {
+  return 'This surgery already deleted';
+}
   }
 
 

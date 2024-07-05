@@ -1,4 +1,5 @@
 import 'package:medicory_gp/common/helpers/api.dart';
+import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/doctor/doctor_pages/Medical_history_heirarchy_pages/add_new_surgery.dart';
 import 'package:medicory_gp/doctor/models/disease_model.dart';
 import 'package:medicory_gp/common/models/surgery_model.dart';
@@ -26,8 +27,12 @@ class DiseasesServices{
 
 
    Future<String>deleteDisease({required num id})async{
-    String data = await Api().deleteReturnString(url: 'http://localhost:8081/doctors/patients/${topic}/${id}');
-    return data;
+    try {
+  String data = await Api().deleteReturnString(url: 'http://localhost:8081/doctors/patients/${topic}/${id}');
+  return data;
+} on Exception catch (e) {
+  return 'This element already deleted ';
+}
   }
 
 

@@ -13,7 +13,18 @@ class AllergiesHistoryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kColor,
-        title: Text('Allergical History : '),
+        title: Text('Allergical History : ' ,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
+        
+        actions: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 50,)
+        ],
       ),
       body: FutureBuilder(
           future: MedicalHistoryServices().getAllergies(userCode: userCode),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/common/services/login_service.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
@@ -22,12 +23,15 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(''),
+          title: Text('Reset the password'),
+          backgroundColor: kColor,
         ),
         body: (verifyPassword)
             ? Container(
+              margin: EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   child: Column(
+                    
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Email :'),
@@ -47,11 +51,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       (verified)
                           ? Column(
                               children: [
-                                Text('Enter the password : '),
+                                Text('Enter your new password : '),
                                 SizedBox(
                                   height: 10,
                                 ),
                                 TextField(
+                                  obscureText: true,
                                     decoration: InputDecoration(
                                         hintText: 'password',
                                         border: OutlineInputBorder(
@@ -68,8 +73,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                                   height: 10,
                                 ),
                                 TextField(
+                                  obscureText: true,
                                     decoration: InputDecoration(
                                         hintText: 'confirm password',
+
                                         border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(16))),
@@ -81,6 +88,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                                     onPressed: () {
                                       if (passWord != null ||
                                           passWord!.length < 12) {
+                                            
                                             if(confirmPassWord != null && confirmPassWord == passWord)
                                        { LoginServices()
                                             .ResetPassword(
@@ -152,6 +160,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 ),
               )
             : Container(
+               margin: EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

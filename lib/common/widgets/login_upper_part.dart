@@ -9,11 +9,25 @@ class LoginUpperPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
+    return
+         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            FadeInUp(
+                duration: const Duration(milliseconds: 1000),
+                child: Center(
+                  child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),
+                              borderRadius: BorderRadius.circular(80)),
+                        )),
+                )),
             FadeInUp(
                 duration: const Duration(milliseconds: 1000),
                 child: Center(
@@ -23,10 +37,10 @@ class LoginUpperPart extends StatelessWidget {
                   ),
                 )),
             const SizedBox(
-              height: 70,
+              height: 20,
             ),
             
           ],
-        ));
+        );
   }
 }

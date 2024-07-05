@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/doctor/cubits/get_patient_cubit/get_patient_cubit.dart';
 import 'package:medicory_gp/common/models/prescription_model.dart';
 import 'package:medicory_gp/doctor/services/prescription_services.dart';
@@ -44,11 +45,23 @@ class _AddPrescriptionPageState extends State<AddPrescriptionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Prescription :"),
+        title: Text("Add Prescription :",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
         centerTitle: true,
-        actions: [
+        backgroundColor: kColor,
+        
+         actions: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 40,),
+          
+        
           GestureDetector(
-            child: Icon(Icons.refresh),
+            child: Icon(Icons.refresh,color: Colors.white,),
             onTap: () {
               loading = true;
               setState(() {});
@@ -61,7 +74,8 @@ class _AddPrescriptionPageState extends State<AddPrescriptionPage> {
                 setState(() {});
               });
             },
-          )
+            
+          ),SizedBox(width: 10,)
         ],
       ),
       body:(loading)?

@@ -41,11 +41,15 @@ class _DiseaseHistoryPageState extends State<DiseaseHistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(topic+" :"),
+        title: Text(topic+" :",
+          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+        ),
         centerTitle: true,
-        actions: [
+        backgroundColor: kColor,
+        
+         actions: [
           GestureDetector(
-            child: Icon(Icons.refresh),
+            child: Icon(Icons.refresh,color: Colors.white,),
             onTap: () {
               isLoading = true;
               setState(() {});
@@ -59,8 +63,19 @@ class _DiseaseHistoryPageState extends State<DiseaseHistoryPage> {
                 isLoading = false;
                 setState(() {});
               });
-            },
-          )
+            },),
+            SizedBox(width: 30,),
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
+                                  image: AssetImage('images/logo.png'),
+                                  fit: BoxFit.fill),),
+          ),SizedBox(width: 30,),
+          
+        
+         
+        
         ],
       ),
       body: (isLoading)
