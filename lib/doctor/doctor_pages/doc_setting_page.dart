@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:medicory_gp/common/Pages/login_page.dart';
 import 'package:medicory_gp/common/constants.dart';
+import 'package:medicory_gp/common/models/login_info.dart';
 import 'package:medicory_gp/owner/models/owner_model.dart';
 import 'package:medicory_gp/owner/widgets/owner_bottom_navigation_bar.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key, required this.ownerCode});
-  final OwnerModel ownerCode;
+class DocSettingPage extends StatelessWidget {
+  const DocSettingPage({super.key, required this.docInfo});
+  final DoctorInfo docInfo;
   static final String id = 'SettingsPage';
 
   @override
@@ -38,17 +39,12 @@ class SettingsPage extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                         'Hossam Mohamed Nagy',
-                        // ownerCode.firstName +
-                        //     ' ' +
-                        //     ownerCode.middleName +
-                        //     ' ' +
-                        //     ownerCode.lastName,
+                         docInfo.doctorName,
                         style:
                             TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        ownerCode.loginInfo.email,
+                        docInfo.loginInfo.email,
                         style:
                             TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                       )

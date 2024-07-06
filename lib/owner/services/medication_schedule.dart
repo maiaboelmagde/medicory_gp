@@ -1,5 +1,4 @@
 import 'package:medicory_gp/common/helpers/api.dart';
-import 'package:medicory_gp/common/models/prescription_model.dart';
 import 'package:medicory_gp/owner/models/medicine_model.dart';
 
 class MedicationSchedule{
@@ -8,7 +7,7 @@ class MedicationSchedule{
    
     List<MedicineModel> medicines = [];
     try{
-      List<dynamic> response = await Api().getList(url: 'http://localhost:8081/owners/${userCode}/medication-schedule');
+      List<dynamic> response = await Api().getList(url: 'http://192.168.1.12:8081/owners/${userCode}/medication-schedule');
       print(response);
       for (int i = 0; i < response.length; i++ ){
         medicines.add(MedicineModel.fromjson(response[i]));

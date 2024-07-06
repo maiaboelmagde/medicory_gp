@@ -10,6 +10,7 @@ import 'package:medicory_gp/common/widgets/prescription_widget.dart';
 class AddPrescriptionPage extends StatefulWidget {
   static const String id = "AddPrescriptionPage";
    AddPrescriptionPage({super.key,});
+   
 
 
   @override

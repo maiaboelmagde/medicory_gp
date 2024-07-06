@@ -6,7 +6,7 @@ class ImagesServices {
   Future<List<ImagesModel>> getImagesHistory({required String userCode}) async {
     List<dynamic> data = await Api().getList(
         url:
-            'http://localhost:8081/doctors/patients/${userCode}/imaging-tests');
+            'http://10.0.2.2:8081/doctors/patients/${userCode}/imaging-tests');
 
     List<ImagesModel> tests = [];
     for (int i = 0; i < data.length; i++) {
@@ -19,7 +19,7 @@ class ImagesServices {
   Future<ImagesModel> getById({required num id}) async {
     Map<String, dynamic> data = await Api().getMap(
         url:
-            'http://localhost:8081/doctors/patients/imaging-tests?testId=${id}');
+            'http://10.0.2.2:8081/doctors/patients/imaging-tests?testId=${id}');
     ImagesModel testInfo = ImagesModel.fromjson(data);
     return testInfo;
   }
@@ -27,7 +27,7 @@ class ImagesServices {
   Future<String> deleteTest( context, {required num id}) async {
     try {
       String data = await Api().deleteReturnString(
-          url: 'http://localhost:8081/doctors/patients/imaging-tests/${id}');
+          url: 'http://10.0.2.2:8081/doctors/patients/imaging-tests/${id}');
       return data;
     } on Exception catch (e) {
       showSnackBar(context, ' please ,Update the page');
@@ -45,7 +45,7 @@ class ImagesServices {
       required num prescriptionId}) async {
     String data = await Api().postGetListReturnString(
         url:
-            'http://localhost:8081/doctors/patients/${code}/imaging-tests?prescriptionId=${prescriptionId}',
+            'http://10.0.2.2:8081/doctors/patients/${code}/imaging-tests?prescriptionId=${prescriptionId}',
         body: [
           {
             'name': name,
@@ -66,7 +66,7 @@ class ImagesServices {
       required String? resultNotes,
       required bool? status}) async {
     String data = await Api().putString(
-        url: 'http://localhost:8081/doctors/patients/imaging-tests/${id}',
+        url: 'http://192.168.1.12:8081/doctors/patients/imaging-tests/${id}',
         body: {
           "name": name,
           "description": description,

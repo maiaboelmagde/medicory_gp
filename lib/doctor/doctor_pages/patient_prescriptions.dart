@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/common/constants.dart';
@@ -28,7 +26,7 @@ class PatientPrescriptions extends StatelessWidget {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(360), image: DecorationImage(
                                   image: AssetImage('images/logo.png'),
                                   fit: BoxFit.fill),),
-          ),SizedBox(width: 50,),
+          ),
           
         ]
       ),

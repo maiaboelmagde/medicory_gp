@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
@@ -12,7 +13,7 @@ import 'package:medicory_gp/doctor/widgets/custom_text_field.dart';
 
 class PrescriptionWidget extends StatefulWidget {
   PrescriptionWidget(
-      {super.key, required this.myInfo, required this.beingcreated});
+      {super.key, required this.myInfo, required this.beingcreated, @required String? docName});
   PrescriptionModel myInfo;
   final bool beingcreated;
   @override
@@ -57,7 +58,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
             Text('prescription Id : ' +
                 myInfo.prescriptionResponse.prescriptionId.toString()),
             Text("doctor Name : " +
-                (myInfo.prescriptionResponse.doctorName ?? '')),
+                ('Yousef Eslam Omara')),
             Text('created at : ' + myInfo.prescriptionResponse.createdAt),
             Text('updated at : ' + myInfo.prescriptionResponse.updatedAt),
             (beingcreated)
@@ -99,49 +100,53 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
                       itemBuilder: (context, indx) {
                         return SizedBox(
                             height: 100,
-                            child: ListView(
-                              children: [
-                                (beingcreated)?
-                                Row(
-                                  children: [
-                                    Text("Medication Name : " +
-                                        myInfo.medications![indx].medicineName),
-                                    Spacer(),
-                                    GestureDetector(
-                                      child: Icon(Icons.delete),
-                                      onTap: () {
-                                        try {
-                                          PrescriptionServices()
-                                              .deletemedicine(
-                                                context,
-                                                  id: myInfo
-                                                      .medications![indx].id)
-                                              .then((value) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(SnackBar(
-                                                    content: Text(value +
-                                                        ' , please ,Update the page')));
-                                            setState(() {});
-                                          });
-                                        } on Exception catch (e) {
-                                          showSnackBar(context,
-                                              ' please ,Update the page');
-                                        }
-                                      },
-                                    )
-                                  ],
-                                )
-                               :  Text("Medication Name : " +
-                                        myInfo.medications![indx].medicineName) ,
-                                Text(
-                                    "Dose : " + myInfo.medications![indx].dose),
-                                Text("frequency : " +
-                                    myInfo.medications![indx].frequency
-                                        .toString()),
-                                Text(
-                                    "Tips : " + myInfo.medications![indx].tips),
-                                Text("-------------------")
-                              ],
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  (beingcreated)?
+                                  Row(
+                                    children: [
+                                      Text("Medication Name : " +
+                                          myInfo.medications![indx].medicineName),
+                                      Spacer(),
+                                      GestureDetector(
+                                        child: Icon(Icons.delete),
+                                        onTap: () {
+                                          try {
+                                            PrescriptionServices()
+                                                .deletemedicine(
+                                                  context,
+                                                    id: myInfo
+                                                        .medications![indx].id)
+                                                .then((value) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(SnackBar(
+                                                      content: Text(value +
+                                                          ' , please ,Update the page')));
+                                              setState(() {});
+                                            });
+                                          } on Exception catch (e) {
+                                            showSnackBar(context,
+                                                ' please ,Update the page');
+                                          }
+                                        },
+                                      )
+                                    ],
+                                  )
+                                 :  Text("Medication Name : " +
+                                          myInfo.medications![indx].medicineName) ,
+                                  Text(
+                                      "Dose : " + myInfo.medications![indx].dose),
+                                  Text("frequency : " +
+                                      myInfo.medications![indx].frequency
+                                          .toString()),
+                                  Text(
+                                      "Tips : " + myInfo.medications![indx].tips),
+                                  Text("-------------------")
+                                ],
+                              ),
                             ));
                       })
                   : Text('No medications'),
@@ -258,7 +263,10 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
                       itemBuilder: (context, indx) {
                         return SizedBox(
                             height: 120,
-                            child: ListView(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 (beingcreated)?
                                 Row(
@@ -312,7 +320,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
                                     : Text(''),
                                 Text("-------------------")
                               ],
-                            ));
+                            )));
                       })
                   : Text("There is't any tests required"),
             ),
@@ -408,7 +416,10 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
                       itemBuilder: (context, indx) {
                         return SizedBox(
                             height: 120,
-                            child: ListView(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 (beingcreated)?
                                 Row(
@@ -457,7 +468,7 @@ class _PrescriptionWidgetState extends State<PrescriptionWidget> {
                                     : Text(''),
                                 Text("-------------------")
                               ],
-                            ));
+                            )));
                       })
                   : Text("There in't any Imaging required"),
             ),

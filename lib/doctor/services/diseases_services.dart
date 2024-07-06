@@ -8,7 +8,7 @@ class DiseasesServices{
   final String topic;
   DiseasesServices({required this.topic});
     Future<List<DiseaseModel>>getDiseases({required String userCode})async{
-    List<dynamic>data = await Api().getList(url: 'http://localhost:8081/doctors/patients/${userCode}/${topic}');
+    List<dynamic>data = await Api().getList(url: 'http://192.168.1.12:8081/doctors/patients/${userCode}/${topic}');
     List<DiseaseModel> diseases= [];
 
     for(int i = 0; i<data.length;i++){
@@ -18,7 +18,7 @@ class DiseasesServices{
   }
 
   Future<DiseaseModel> getDiseaseById({required num id}) async{
-    Map<String, dynamic> data = await Api().getMap(url: 'http://localhost:8081/doctors/patients/${topic}/${id}');
+    Map<String, dynamic> data = await Api().getMap(url: 'http://192.168.1.12:8081/doctors/patients/${topic}/${id}');
     DiseaseModel surgeryInfo = DiseaseModel.fromjson(data);
 
     return surgeryInfo;
@@ -28,7 +28,7 @@ class DiseasesServices{
 
    Future<String>deleteDisease({required num id})async{
     try {
-  String data = await Api().deleteReturnString(url: 'http://localhost:8081/doctors/patients/${topic}/${id}');
+  String data = await Api().deleteReturnString(url: 'http://192.168.1.12:8081/doctors/patients/${topic}/${id}');
   return data;
 } on Exception catch (e) {
   return 'This element already deleted ';
@@ -41,7 +41,7 @@ class DiseasesServices{
       required String name,
       required String information}) async {
     String data = await Api().postReturnString(
-        url: 'http://localhost:8081/doctors/patients/${code}/${topic}',
+        url: 'http://192.168.1.12:8081/doctors/patients/${code}/${topic}',
         body: {'name': name, 'information': information});
     return data;
   }
@@ -54,7 +54,7 @@ class DiseasesServices{
       required String information}) async {
     String data = await Api().putString(
         url:
-            'http://localhost:8081/doctors/patients/${userCode}/${topic}/${id}',
+            'http://192.168.1.12:8081/doctors/patients/${userCode}/${topic}/${id}',
         body: {"name": name, "information": information});
     return data;
   }

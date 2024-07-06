@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           LoginPage.id: (context) => LoginPage(),
-          DocHomePage.id: (context) => const DocHomePage(),
+          // DocHomePage.id: (context) => const DocHomePage(),
           NoPatientPage.id: (context) => const NoPatientPage(),
           SearchForPatientPage.id: (context) => const SearchForPatientPage(),
           MedicalHistoryPage.id: (context) => const MedicalHistoryPage(),

@@ -6,6 +6,7 @@ import 'package:medicory_gp/common/Pages/reset_password_page.dart';
 import 'package:medicory_gp/common/constants.dart';
 import 'package:medicory_gp/common/helpers/show_snack_bar.dart';
 import 'package:medicory_gp/common/services/login_service.dart';
+import 'package:medicory_gp/doctor/doctor_pages/home_page.dart';
 import 'package:medicory_gp/doctor/widgets/custom_button.dart';
 import 'package:medicory_gp/common/widgets/login_upper_part.dart';
 import 'package:medicory_gp/owner/owner_pages/owner_home_page.dart';
@@ -107,9 +108,12 @@ class LoginPage extends StatelessWidget {
                         FadeInUp(
                             duration: Duration(milliseconds: 1500),
                             child: GestureDetector(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){return ResetPasswordPage();}));
-                              } ,
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return ResetPasswordPage();
+                                }));
+                              },
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(color: Colors.grey),
@@ -122,31 +126,59 @@ class LoginPage extends StatelessWidget {
                           title: 'Log In',
                           onPressed: () {
                             if (email == null || password == null) {
-                              showSnackBar(context,
-                                  'Email and Password must be entered correctly'+ (email ?? 'email = null ')+ (password ?? 'password = null'));
+                              showSnackBar(
+                                  context,
+                                  'Email and Password must be entered correctly' +
+                                      (email ?? 'email = null ') +
+                                      (password ?? 'password = null'));
                             } else {
                               LoginServices()
                                   .login(email: email!, password: password!)
                                   .then((onValue) {
-
-                                if (onValue != null ) {
+                                    
+                                if (onValue != null) {
                                   
-                                  LoginServices()
-                                      .getOwnerCode(ownerId: onValue.id, loginInfo: onValue )
-                                      .then((value) {
-                                    if (value != null) {
-                                      Navigator.pop(context);
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) {
-                                        return OwnerHomePage(ownerCode: value);
-                                      }));
-                                    } else {
-                                      showSnackBar(context,
-                                          'Some thing went wrong , please try again');
-                                    }
-                                  });
-
-                                 
+                                  if (onValue.role == 'OWNER') {
+                                    LoginServices()
+                                        .getOwnerCode(
+                                            ownerId: onValue.id,
+                                            loginInfo: onValue)
+                                        .then((value) {
+                                      if (value != null) {
+                                        Navigator.pop(context);
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return OwnerHomePage(
+                                              ownerCode: value);
+                                        }));
+                                      } else {
+                                        showSnackBar(context,
+                                            'Some thing went wrong , please try again');
+                                      }
+                                    });
+                                  } else {
+                                    LoginServices()
+                                        .getDoctorInfo(
+                                      doctorCode: onValue.code,
+                                      loginInfo: onValue,
+                                    )
+                                        .then((value) {
+                                      if (value != null) {
+                                        Navigator.pop(context);
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return DocHomePage(
+                                            docInfo: value,
+                                          );
+                                        }));
+                                      } else {
+                                        showSnackBar(context,
+                                            "failed to get doctor's info ");
+                                      }
+                                    });
+                                  }
                                 } else {
                                   showSnackBar(
                                       context, 'Invalid email or password');

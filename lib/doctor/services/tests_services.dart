@@ -5,7 +5,7 @@ import 'package:medicory_gp/doctor/models/tests_model.dart';
 class TestsServices {
   Future<List<TestsModel>> getTestsHistory({required String userCode}) async {
     List<dynamic> data = await Api().getList(
-        url: 'http://localhost:8081/doctors/patients/${userCode}/tests');
+        url: 'http://192.168.1.12:8081/doctors/patients/${userCode}/tests');
 
     List<TestsModel> tests = [];
     for (int i = 0; i < data.length; i++) {
@@ -17,7 +17,7 @@ class TestsServices {
 
   Future<TestsModel> getTest({required num id}) async {
     Map<String, dynamic> data = await Api().getMap(
-        url: 'http://localhost:8081/doctors/patients/tests?testId=${id}');
+        url: 'http://192.168.1.12:8081/doctors/patients/tests?testId=${id}');
     TestsModel testInfo = TestsModel.fromjson(data);
     return testInfo;
   }
@@ -25,7 +25,7 @@ class TestsServices {
   Future<String> deleteTest(context,{required num id}) async {
     try {
   String data = await Api().deleteReturnString(
-      url: 'http://localhost:8081/doctors/patients/tests/${id}');
+      url: 'http://192.168.1.12:8081/doctors/patients/tests/${id}');
   return data;
 } on Exception catch (e) {
   showSnackBar(context, ' please ,Update the page');
@@ -42,7 +42,7 @@ class TestsServices {
       required num prescriptionId}) async {
     String data = await Api().postGetListReturnString(
         url:
-            'http://localhost:8081/doctors/patients/${code}/tests?prescriptionId=${prescriptionId}',
+            'http://192.168.1.12:8081/doctors/patients/${code}/tests?prescriptionId=${prescriptionId}',
         body: [{
           'name': name,
           'description': description,
@@ -62,7 +62,7 @@ class TestsServices {
       required String resultNotes,
       required bool status}) async {
     String data = await Api().putString(
-        url: 'http://localhost:8081/doctors/patients/tests/${id}',
+        url: 'http://192.168.1.12:8081/doctors/patients/tests/${id}',
         body: {
           "name": name,
           "description": description,

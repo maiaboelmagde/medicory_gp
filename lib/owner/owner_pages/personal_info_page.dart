@@ -33,7 +33,7 @@ class PersonalInfoPage extends StatelessWidget {
                   children: [
                     Text('Name : '),
                      Spacer(),
-                    Text(snap.data!.name.toString()),
+                    Text('Hossam Mohamed Nagy',),
                     Spacer()
                   ],
                 ),

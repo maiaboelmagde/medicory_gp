@@ -57,7 +57,7 @@ class OwnerHomePage extends StatelessWidget {
             children: [
               SizedBox(height: 10),
               Text(
-                'Welcome, ' + ownerCode.firstName + ' ' + ownerCode.lastName,
+                'Welcome, ' + 'Hossam Mohamed Nagy',
                 style: TextStyle(color: Colors.white, fontSize: 30),
               ),
               Text(

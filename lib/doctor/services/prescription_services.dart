@@ -9,7 +9,7 @@ class PrescriptionServices {
       {required String userCode}) async {
     List<dynamic> response = await Api().getList(
         url:
-            'http://localhost:8081/doctors/patients/${userCode}/prescriptions');
+            'http://192.168.1.12:8081/doctors/patients/${userCode}/prescriptions');
 
     List<PrescriptionModel> Prescriptions = [];
     for (int i = 0; i < response.length; i++) {
@@ -30,7 +30,7 @@ class PrescriptionServices {
       "imagingTests": images
     };
     num response = await Api().postReturnNum(
-        url: 'http://localhost:8081/doctors/patients/${userCode}/prescriptions',
+        url: 'http://192.168.1.12:8081/doctors/patients/${userCode}/prescriptions',
         body: body);
     return response;
   }
@@ -38,7 +38,7 @@ class PrescriptionServices {
   Future<PrescriptionModel> getById({required num id}) async {
     Map<String, dynamic> prescription = await Api().getMap(
         url:
-            'http://localhost:8081/doctors/patients/prescriptions?prescriptionId=${id}');
+            'http://192.168.1.12:8081/doctors/patients/prescriptions?prescriptionId=${id}');
     PrescriptionModel myPrescription = PrescriptionModel.fromjson(prescription);
     return myPrescription;
   }
@@ -61,7 +61,7 @@ class PrescriptionServices {
     ];
     String response = await Api().postGetListReturnString(
       url:
-          'http://localhost:8081/doctors/patients/${userCode}/medications?prescriptionId=${prescriptionId}',
+          'http://192.168.1.12:8081/doctors/patients/${userCode}/medications?prescriptionId=${prescriptionId}',
       body: body,
     );
 
@@ -71,7 +71,7 @@ class PrescriptionServices {
   Future<String> deletemedicine(context, {required num id}) async {
     try {
       String data = await Api().deleteReturnString(
-          url: 'http://localhost:8081/doctors/patients/medications/${id}');
+          url: 'http://192.168.1.12:8081/doctors/patients/medications/${id}');
       return data;
     } on Exception catch (e) {
       showSnackBar(context, ' please ,Update the page');

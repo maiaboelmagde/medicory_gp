@@ -5,7 +5,7 @@ import 'package:medicory_gp/doctor/models/disease_model.dart';
 
 class ImmunizationsServices{
     Future<List<DiseaseModel>>getimmunizations({required String userCode})async{
-    List<dynamic>data = await Api().getList(url: 'http://localhost:8081/doctors/patients/${userCode}/immunizations');
+    List<dynamic>data = await Api().getList(url: 'http://192.168.1.12:8081/doctors/patients/${userCode}/immunizations');
     List<DiseaseModel> immunizations= [];
 
     for(int i = 0; i<data.length;i++){
@@ -15,7 +15,7 @@ class ImmunizationsServices{
   }
 
   Future<DiseaseModel> getimmunizationById({required num id}) async{
-    Map<String, dynamic> data = await Api().getMap(url: 'http://localhost:8081/doctors/patients/immunizations/${id}');
+    Map<String, dynamic> data = await Api().getMap(url: 'http://192.168.1.12:8081/doctors/patients/immunizations/${id}');
     DiseaseModel surgeryInfo = DiseaseModel.fromjson(data);
 
     return surgeryInfo;
@@ -24,7 +24,7 @@ class ImmunizationsServices{
 
 
    Future<String>deleteimmunization({required num id})async{
-    String data = await Api().deleteReturnString(url: 'http://localhost:8081/doctors/patients/immunizations/${id}');
+    String data = await Api().deleteReturnString(url: 'http://192.168.1.12:8081/doctors/patients/immunizations/${id}');
     return data;
   }
 
@@ -34,7 +34,7 @@ class ImmunizationsServices{
       required String name,
       required String information}) async {
     String data = await Api().postReturnString(
-        url: 'http://localhost:8081/doctors/patients/${code}/immunizations',
+        url: 'http://192.168.1.12:8081/doctors/patients/${code}/immunizations',
         body: {'name': name, 'information': information});
     return data;
   }
@@ -48,7 +48,7 @@ class ImmunizationsServices{
         log(information);
     String data = await Api().putString(
         url:
-            'http://localhost:8081/doctors/patients/${userCode}/immunizations/${id}',
+            'http://192.168.1.12:8081/doctors/patients/${userCode}/immunizations/${id}',
         body: {"name": name, "information": information});
     return data;
   }
