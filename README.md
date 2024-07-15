@@ -25,10 +25,7 @@ https://github.com/user-attachments/assets/4de0d245-64c3-457f-bce2-ff2728bd69ff
 Doctor (part 2) :
 
 
-
-Uploading doc_part-2.-fin-3.mp4…
-
-
+https://github.com/user-attachments/assets/442e3f77-3002-412f-aded-0aa7492219b3
 
 
 
